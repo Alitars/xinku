@@ -1,0 +1,31 @@
+<view class="img">
+  <image class="img" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-D0LSAXOPXAAFlQCRJRC8274.png"></image>
+</view>
+<view class="box clearfix">
+  <view class="tit fl">联系人:</view>
+  <input type="text fl" value="{{name}}" class="input" placeholder="请输入受邀人姓名" placeholder-style="color:#999999;" bindinput="getName"/>
+</view>
+<view class="box clearfix">
+  <view class="tit fl">手机号:</view>
+  <input type="number" value="{{phone}}" class="input" placeholder="请输入受邀人手机号" placeholder-style="color:#999999;" maxlength="11" bindinput="getPhone"/>
+</view>
+<view class="box clearfix">
+  <view class="tit fl">类型:</view>
+  <view class="input fl text" bindtap="choose">{{type}}
+    <image src="../../images/down.png" class="down"></image>
+  </view>
+</view>
+
+<view class="box clearfix" wx:if="{{companyShow}}">
+  <view class="tit fl">企业名称:</view>
+  <input type="text fl" value="{{companyName}}" class="input" placeholder="请输入企业名称" placeholder-style="color:#999999;" bindinput="getCompany"/>
+</view>
+<view class="btn">
+  <view class="button" bindtap="submit">提交</view>
+</view>
+<van-action-sheet
+      show="{{ show }}"
+      actions="{{ actions }}"
+      bind:close="onClose"
+      bind:select="onSelect"
+    />

@@ -1,0 +1,39 @@
+<view class="myjob">
+    <view class="clearfix relative">
+      <view class="colordiv fl"></view>
+      <view class="jobtit fl">设置交易密码</view>
+    </view>
+    <view class="">
+      <!-- 交易密码 -->
+      <view class="form-item">
+        <van-field border="{{true}}" type="password" bind:change="onFormChange" value="{{form.password}}" id="password" placeholder="请输入交易密码" error-message="{{passwordErrMsg}}" label="输入交易密码" maxlength="6"/>
+      </view>
+      <view class="form-item">
+        <van-field border="{{true}}" type="password" bind:change="onFormChange" value="{{form.truepassword}}" id="truepassword" placeholder="请再次输入交易密码" error-message="{{truepasswordErrMsg}}" label="确认交易密码" maxlength="6"/>
+      </view>
+      <!-- 验证码 -->
+      <view class="form-item">
+        <van-row type="flex" justify="center" align="center">
+          <van-col span="16">
+            <van-field border="{{true}}" placeholder="输入验证码" type="number" bind:change="onFormChange" value="{{form.code}}" id="code" error-message="{{codeErrMsg}}"  label="验证码"/>
+          </van-col>
+          <van-col span="8">
+            <van-button type="info" custom-class="rigst-btn" bind:click="sendSecurityCode" disabled="{{sendBtnDisable}}" size="small" >
+              {{sendBtnText}}
+            </van-button>
+          </van-col>
+        </van-row>
+      </view>
+
+      <view class="button">
+        <van-row>
+          <van-col span="12">
+            <van-button type="info" custom-class="rigst-btn" bind:click="reset"  size="small" >重置</van-button>
+          </van-col>
+          <van-col span="12">
+            <van-button type="info" custom-class="rigst-btn" bind:click="sure"  size="small" >确认</van-button>
+          </van-col>
+      </van-row>
+      </view>
+    </view>
+  </view>

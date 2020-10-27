@@ -1,0 +1,33 @@
+<view class="card">
+    <view class="add">
+      <van-cell-group>
+        <van-cell title="开户银行" value="{{bankName}}" bind:click="showBankPopup"/>
+      </van-cell-group>
+      <van-cell-group>
+        <van-field value="{{ form.cardNum }}" label="银行卡号" id="cardNum" bind:change="onFormChange" border="{{ true }}"  error-message="{{errMsg.cardNum}}"/>
+      </van-cell-group>
+      <van-cell-group>
+        <van-field value="{{ form.phone }}" label="手机号" id="phone" bind:change="onFormChange" border="{{ true }}"  error-message="{{errMsg.phone}}"/>
+      </van-cell-group>
+      <van-cell-group class="form-item">
+        <van-row>
+          <van-col offset="32rpx" span="16">
+            <van-field label="验证码" value="{{ form.codeValidate }}" id="codeValidate" bind:change="onFormChange" border="{{true}}" placeholder="输入验证码" error-message="{{errMsg.codeValidate}}"/>
+          </van-col>
+          <van-col span="8">
+            <van-button type="info" block bind:click="sendSecurityCode" disabled="{{sendBtnDisable}}">
+              {{sendBtnText}}
+            </van-button>
+          </van-col>
+        </van-row>
+      </van-cell-group>
+      
+    </view>
+    <view class="btn">
+      <van-button type="info" bind:click="saveForm">同意协议并绑卡</van-button>
+    </view>
+</view>
+<!-- 开户银行 -->
+<van-popup show="{{ bankShow }}" position="bottom" bind:close="onBankClose"  round custom-style="height: 40%">
+  <van-picker columns="{{ banks }}" default-index="{{form.bankId-1}}" bind:change="onBankChange" />
+</van-popup>

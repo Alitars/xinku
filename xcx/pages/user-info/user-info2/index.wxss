@@ -1,0 +1,46 @@
+/* pages/user-info1/userinfo1.wxss */
+.flex-container{
+  display: flex;
+  font-size: 28rpx;
+  width: 100%;
+}
+
+.content{
+  width: 690rpx;
+  margin-left: 30rpx;
+}
+.cancel-btn{
+  background-color: rgba(151, 151, 151, 0.2714285714285714) !important;
+}
+.margin-top-20{
+  margin-top: 20rpx;
+}
+.margin-bottom-40{
+  margin-bottom: 40rpx;
+}
+.margin-bottom-20{
+  margin-bottom: 20rpx;
+}
+
+.margin-top-80{
+   margin-top: 80rpx;
+}
+
+.value-class{
+  white-space: nowrap;
+  margin-left: -100px;
+}
+
+.idcard-wrap{
+  padding: 25rpx;
+}
+
+.choose-idcard{
+  width: 700rpx;
+  height: 450rpx;
+  line-height: 450rpx;
+  text-align: center;
+  background-color: rgba(153, 153, 153, 0.1);
+  /* margin-left: 25rpx; */
+  margin-bottom: 40rpx;
+}

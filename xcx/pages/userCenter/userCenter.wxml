@@ -1,0 +1,73 @@
+<!-- 头像 信息 和头像编辑 -->
+<view class="head clearfix">
+  <!-- 头像 -->
+  <view class="info">
+    <view class="logo fl">
+      <image class="logoimg" src="{{logoImg}}"></image>
+    </view>
+    <view class="name fl">
+      <view class="userName">{{name}}</view>
+      <view class="checktext">
+        <!-- <image class="check" src="/images/attestation.png" ></image>  -->
+        <!-- <text class="checkt" decode="{{true}}">&nbsp;&nbsp;已实名</text> -->
+      </view>
+    </view>
+    <image src="/images/edit.png" class="editimg"  bindtap="uploadAvatar"></image>
+  </view>
+  <!-- 我的工作 -->
+  <!-- <view class="myjob">
+    <view class="clearfix">
+      <view class="colordiv fl"></view>
+      <view class="jobtit fl">我的工作</view>
+    </view>
+    <view class="sondiv clearfix">
+      <view class="state fl">
+        <view>99</view>
+        <view class="stateName">已报名</view>
+      </view>
+      <view class="state fl">
+        <view>99</view>
+        <view class="stateName">已报名</view>
+      </view>
+      <view class="state fl">
+        <view>99</view>
+        <view class="stateName">已报名</view>
+      </view>
+      <view class="state fl">
+        <view>99</view>
+        <view class="stateName">已报名</view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 我的简历 -->
+  <view class="myjob">
+    <view class="clearfix relative">
+      <view class="colordiv fl"></view>
+      <view class="jobtit fl">我的简历</view>
+    </view>
+    <view class="Expbox clearfix">
+      <block wx:for="{{myExp}}" wx:key="index">
+        <view class="fl expWidth" bindtap="goMy" data-id="{{item.id}}">
+          <image class="expImg" src="{{item.icon}}"></image>
+          <view class="exp-text">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 操作 -->
+  <view class="myjob">
+    <block wx:for="{{mySet}}" wx:key="index">
+      <view class="set" bindtap="goset" data-id="{{item.id}}">
+        <image class="icon" src="{{item.icon}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 退出 -->
+  <view class="signOut">
+    <view class="outBtn" bindtap="signOut">
+      退出登录
+    </view>
+  </view>
+</view>

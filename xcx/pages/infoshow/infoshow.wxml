@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="content">
+    <van-cell-group>
+      <van-cell title="我的名字" value="{{infoList.name}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="年龄" value="{{infoList.age}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="身份证号码" value="{{infoList.idNum}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="性别" value="{{infoList.sex == 0?'男':'女'}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="证件有效期（起）" value="{{infoList.idEffecDate}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="证件有效期（止）" value="{{infoList.expDay}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="发证机关" value="{{infoList.licIssuAutho}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="开户银行" value="{{cardList.bankName}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="银行卡号" value="{{cardList.cardNum}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="上海银行E账户" value="{{infoList.eAccountNo}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="身份证照片" value="点击查看身份证照片" bind:click="preview"/>
+    </van-cell-group>
+  </view>
+</view>
+<!-- 弹框 -->
+<van-dialog id="van-dialog" />

@@ -1,0 +1,56 @@
+<!-- index.wxml -->
+<view class="container" hover-class="none" hover-stop-propagation="false">
+  <!-- <view class="logo-wrap" hover-class="none" hover-stop-propagation="false"></view> -->
+  <!-- <view class="logo" hover-class="none" hover-stop-propagation="false">
+    <van-image width="100%" height="400rpx" src="/images/topMap.png" />
+  </view> -->
+  <view>
+    <image src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV9xgrmABSP_AAFEq59D_nE684.png" class="topimg"></image>
+  </view>
+  <view hover-class="none" class="tabs-wrap" hover-stop-propagation="false">
+    <van-tabs nav-class="nav" tab-active-class="tab-active" tab-class="default-tab" line-height="0" active="{{ active }}" bind:change="onChange">
+      <van-tab title="个人登录">
+        <view class="form clearfix">
+          <view class="form-item">
+            <van-field border="{{true}}" type="number" bind:change="onFormChange" value="{{form.phone}}" id="phone" placeholder="请输入手机号"  error-message="{{phoneErrMsg}}" label="账号" clearable="{{true}}"/>
+          </view>
+          <view class="form-item">
+            <van-field border="{{true}}" type="password" bind:change="onFormChange" value="{{form.password}}" id="password" placeholder="请输入密码"  error-message="{{passwordErrMsg}}" label="密码" clearable="{{true}}"/>
+          </view>
+          <!-- <view class="form-item">
+            <van-row>
+              <van-col span="16">
+                <van-field border="{{true}}" bind:change="onChange" value="{{captchaVal}}" id="captchaVal" placeholder="输入验证码"  error-message="{{captchaValErrMsg}}" label="验证码" clearable="{{true}}"/>
+              </van-col>
+              <van-col span="8">
+                <van-image width="calc(100% - 16px)" height="80rpx" bindtap="getCaptcha" src="{{codeImgUrl}}" />
+              </van-col>
+            </van-row>
+          </view> -->
+          <view class="form-item login-btn">
+            <van-button type="info" bindtap="tologin" block>用户登录</van-button>
+          </view>
+          <view class="form-item flex-container">
+            <view class="remember-wrap">
+              <!-- <van-checkbox value="{{ form.rememberPwd }}" id="rememberPwd" shape="square" bind:change="onFormChange">
+                记住密码
+              </van-checkbox> -->
+              <checkbox-group bindchange="remmberChange">
+                <checkbox checked="{{form.rememberPwd}}"/>
+              </checkbox-group>
+              <view class="remmber">记住密码</view>
+            </view>
+            <view class="regist-wrap">
+              <text class="a-text" bindtap="forgetPass">忘记密码</text>
+            </view>
+          </view>
+          <view class="regi">
+              <text class="">还没有账号？</text>
+              <text class="a-text" bindtap="toRegist">注册一个</text>
+          </view>
+        </view>
+      </van-tab>
+      <!-- <van-tab title="企业登录">企业登录</van-tab> -->
+    </van-tabs>
+  </view>
+</view>

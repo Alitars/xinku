@@ -1,0 +1,158 @@
+/* pages/userCenter/userCenter.wxss */
+page{
+  background-color: #F8F9F9;
+  height: 100vh;
+}
+.head{
+  width: 100%;
+  background-image: url(https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV9yp_-AYEh9AAArYMe9EKY245.png);
+  background-repeat:no-repeat;
+  background-size:100% 334rpx
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.logoimg{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+}
+.checktext{
+  text-align: left;
+  font-size: 20rpx;
+  color: #fff;
+  height: 26rpx;
+  line-height: 26rpx;
+  margin-top: 12rpx;
+}
+.checkt{
+  display: inline-block;
+  vertical-align:middle;
+}
+.check{
+  height: 20rpx;
+  width: 20rpx;
+  vertical-align:middle;
+}
+.name{
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+.userName{
+  color: #fff;
+  font-size: 32rpx;
+}
+.info{
+  padding:32rpx;
+  padding-top: 62rpx;
+  height: 120rpx;
+  position: relative;
+}
+.editimg{
+  position: absolute;
+  right: 32rpx;
+  top: 100rpx;
+  /* transform: translateY(-50%); */
+  height: 40rpx;
+  width: 40rpx;
+}
+.myjob{
+  margin: 32rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-shadow: 0px 10rpx 10rpx 0px rgba(0,0,0,0.04);
+}
+.colordiv{
+  height: 40rpx;
+  width: 10rpx;  
+  background-color: #A8D0F0;
+  margin-top: 4rpx;
+}
+.jobtit{
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  font-weight:600;
+}
+.sondiv{
+  text-align: center;
+  color: #7B7B7B;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.state{
+  width: 25%;
+}
+.stateName{
+  margin-top: 10rpx;
+}
+.why{
+  height: 30rpx;
+  width: 30rpx;
+  position: absolute;
+  top: 50%;
+  right: 10rpx;
+  transform: translateY(-50%);
+}
+.Expbox{
+  margin-top: 20rpx;
+}
+.relative{
+  position: relative;
+}
+.expWidth{
+  width: 25%;
+  text-align: center;
+}
+.expImg{
+  height: 60rpx;
+  width: 60rpx;
+}
+.exp-text{
+  font-size: 24rpx;
+  color: #7B7B7B;
+}
+.icon{
+  position: absolute;
+  width: 54rpx;
+  height: 54rpx;
+  top: 50%;
+  left: 20rpx;
+  transform: translateY(-50%);
+}
+.set{
+  position: relative;
+  margin-bottom: 60rpx;
+}
+.set view{
+  font-size: 32rpx;
+  display:inline-block;
+  margin-left: 120rpx;
+}
+.myjob .set:first-child {
+  margin-top: 40rpx;
+}
+.myjob .set:last-child{
+  margin-bottom: 40rpx;
+}
+.signOut{
+  margin: 32rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0px 10rpx 10rpx 0px rgba(0,0,0,0.04);
+}
+.outBtn{
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #333;
+  font-size: 30rpx;
+}

@@ -1,0 +1,45 @@
+<view class="info">
+  <view class="top">
+    <view class="clearfix">
+      <view class="fl f18">{{list.positionName}}</view>
+      <view class="fr f16">{{list.monthlySalary == 1?'面议':list.monthlySalary==2?'2k以下':list.monthlySalary==3?'2-5k':list.monthlySalary==4?'5-10k':list.monthlySalary==5?'10-15k':'15k以上'}}</view>
+    </view>
+    <view class="adress clearfix">
+      <view class="fl">{{list.address}}</view>
+      <view class="fr">发布日期：{{time}}</view>
+    </view>
+    <view class="company clearfix">
+      <view class="fl imgbox">
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/xinku-pc/images/public/p_logo_defualt.png" wx:if="{{list.logo == null || list.logo == ''}}"></image>
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/{{list.logo}}" wx:else></image>
+      </view>
+      <view class="fl box">
+        <view class="name ellipsis">{{list.enterpriseName}}</view>
+        <view class="bottom clearfix">
+          <view class="fl">
+            <view class="checktext">
+              <image class="check" src="/images/check.png"></image> 
+              <view class="checkt"> 认证企业</view>
+            </view>
+          </view>
+          <view class="fl view">已浏览：{{list.browseTimes == null?0:list.browseTimes}}次</view>
+          <view class="abs" bindtap="gotoTask">{{statustxt}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="zdetail">
+    <view class="tit">职位详情</view>
+    <view class="d-txt">{{list.jobDescription}}</view>
+  </view>
+  <view class="line"></view>
+  <view class="zdetail">
+    <view class="tit">岗位要求</view>
+    <view class="d-txt">{{list.jobRequire}}</view>
+  </view>
+</view>
+<view class="fixed" wx:if="{{showTip}}">
+  <view class="get" bindtap="want">我要报名</view>
+</view>
+<view class="ffBox"></view>

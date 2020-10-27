@@ -1,0 +1,133 @@
+<view class="topback">
+  <!-- 地址栏 搜索 -->
+  <!-- <van-row>
+    <van-col span="4" custom-class="adress">上海<image class="abs" src="/images/dw.png"></image></van-col>
+    <van-col span="16">
+      <van-search value="{{ value }}" placeholder="请输入搜索关键词" background="rgb(64,169,255)" shape="round" custom-class="search"/>
+    </van-col>
+    <van-col span="4" custom-class="signIn">签到<image class="abssign" src="/images/signin.png"></image></van-col>
+  </van-row> -->
+  <!-- 轮播图 -->
+  <view class="bannerstyle">
+    <swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" interval="4000" circular="true" class="swiper">
+      <block wx:for="{{banner}}" wx:key="index">
+        <swiper-item>
+          <image class="banner" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+  
+<!-- 功能栏 -->
+<!-- <view class="nav">
+  <block wx:for="{{nav}}" wx:key="index">
+    <view class='flex-item' data-id="{{item.flag}}">
+      <image class="navimg" src="{{item.icon}}"></image>
+      <view>{{item.title}}</view>
+    </view>
+  </block>
+</view> -->
+<!-- 猜你喜欢 -->
+<view class="toptit clearfix">
+  <view class="fl guess">猜你喜欢</view>
+  <!-- <view class="fl more">换一批 <image src="/images/refresh.png" class="titimg"></image></view> -->
+</view>
+<!-- 招聘的内容 -->
+<view class="like">
+  <view class="work clearfix" bindtap="toCaihui">
+    <view class="fl pro-left">
+      <image class="small-img" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-IDj6Ab1S0AAA9SStOvaw071.png"></image>
+      <view class="checktext">
+        <image class="check" src="/images/check.png"></image> 
+        <view class="checkt"> 认证企业</view>
+      </view>
+    </view>
+    <view class="fl pro-detail">
+      <van-row custom-class="l-h">
+        <van-col span="10" custom-class="text ellipsis alc">【产品推广】</van-col>
+        <van-col span="14" custom-class="text ellipsis">上海彩荟网络科技有限公司</van-col>
+        <!-- <van-col span="8" custom-class="date">{{item.sign_time}}</van-col> -->
+      </van-row>
+      <view class="distance clearfix">
+        <view class="f-l">签约方式：线上签约</view>
+        <view class="f-l">职位状态：审核通过</view>
+        <!-- <view class="f-l">无限制</view> -->
+      </view>
+      <view class="money">
+        <view class="date tl">2020-10-14 17:33:56</view>
+        <!-- <view class="money-left">7000元/薪酬</view>
+        <view class="money-right">已报名: 72332</view>
+        <view class="money-right">浏览: 723239</view> -->
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <block wx:for="{{jobList}}" wx:key="index">
+    <view class="work clearfix" bindtap="toDetail" data-id="{{item.enterprise_id}}" data-pid="{{item.position_id}}" data-sign="{{item.sign_id}}" data-status="{{item.work_status}}" data-pStatus="{{item.position_status}}" data-close="{{item.position_close}}">
+      <view class="fl pro-left">
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/xinku-pc/images/public/p_logo_defualt.png" wx:if="{{item.enterprise_logo == ''}}"></image>
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/{{item.enterprise_logo}}" wx:else></image>
+        <view class="checktext">
+          <image class="check" src="/images/check.png"></image> 
+          <view class="checkt"> 认证企业</view>
+        </view>
+      </view>
+      <view class="fl pro-detail">
+        <van-row custom-class="l-h">
+          <van-col span="10" custom-class="text ellipsis alc">【{{item.position_name}}】</van-col>
+          <van-col span="14" custom-class="text ellipsis">{{item.enterprise_name}}</van-col>
+          <!-- <van-col span="8" custom-class="date">{{item.sign_time}}</van-col> -->
+        </van-row>
+        <view class="distance clearfix">
+          <view class="f-l">签约方式：{{item.sign_type == 0?'线上签约':'线下签约'}}</view>
+          <view class="f-l">职位状态：{{item.position_status == 1?'待审核':(item.position_status == 2?'审核通过':'审核未通过')}}</view>
+          <!-- <view class="f-l">无限制</view> -->
+        </view>
+        <view class="money">
+          <view class="date tl">{{item.sign_time}}</view>
+          <!-- <view class="money-left">7000元/薪酬</view>
+          <view class="money-right">已报名: 72332</view>
+          <view class="money-right">浏览: 723239</view> -->
+          <view></view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <!-- <view class="work clearfix">
+    <view class="fl pro-left">
+      <image class="small-img" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV9yoHOAcwsKAAC6UWY63Qo478.png"></image>
+      <view class="checktext">
+        <image class="check" src="/images/check.png"></image> 
+        <view class="checkt"> 认证企业</view>
+      </view>
+    </view>
+    <view class="fl pro-detail">
+      <van-row custom-class="l-h">
+        <van-col span="8" custom-class="text">「哈哈哈」</van-col>
+        <van-col span="8" custom-class="text ellipsis"> 十大大苏打撒旦哈哈哈</van-col>
+        <van-col span="8" custom-class="date">2020-09-29</van-col>
+      </van-row>
+      <view class="distance clearfix">
+        <view class="f-l">英雄大厦</view>
+        <view class="f-l">150米</view>
+        <view class="f-l">无限制</view>
+      </view>
+      <view class="money">
+        <view class="money-left">7000元/薪酬</view>
+        <view class="money-right">已报名: 72332</view>
+        <view class="money-right">浏览: 723239</view>
+      </view>
+    </view>
+  </view> -->
+</view>
+<!-- 加载中 -->
+<!-- <view class="{{show?'nohide':'hide'}}">
+  <van-loading color="#1989fa"/> 
+</view> -->
+<!-- 到底了 -->
+<van-divider contentPosition="center" customStyle="color: rgb(212, 209, 209); border-color: rgb(212, 209, 209); font-size: 24rpx;">
+  到底了
+</van-divider>
+<view class="fixed" hidden="{{showBox}}" bindtap="isLogin"></view>

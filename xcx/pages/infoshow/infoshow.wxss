@@ -1,0 +1,14 @@
+page{
+  background-color: rgb(248, 249, 249);
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}

@@ -1,0 +1,119 @@
+/* pages/moneyBag/moneyBag.wxss */
+.head{
+  width: 100%;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.top{
+  background-color: #40A9FF;
+  margin: 32rpx;
+  border-radius: 10rpx;
+  padding: 30rpx;
+}
+.set{
+  height: 30rpx;
+  width: 30rpx;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.count{
+  font-size: 32rpx;
+  position: relative;
+  color: #ffffff;
+}
+.num{
+  margin-top: 20rpx;
+  font-size: 42rpx;
+  color: #fff;
+}
+.cid{
+  position: relative;
+  font-size: 30rpx;
+  color: #fff;
+  margin-top: 50rpx;
+  
+}
+.abs{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10rpx 20rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #40A9FF;
+}
+.addcard{
+  height: 120rpx;
+  background-color: #D2EAFF;
+  margin: 32rpx;
+  border-radius: 10rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #40A9FF;
+}
+.detail{
+  margin: 32rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.coinFrom{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #696969;
+  padding-bottom: 10rpx;
+  border-bottom: 2rpx solid rgb(235, 235, 235);
+}
+.coinbox{
+  padding:30rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.ltext{
+  font-size: 28rpx;
+  font-weight: 600;
+
+}
+.rtext{
+  font-size: 24rpx;
+  color: #696969;
+}
+.moneyBox{
+  padding:30rpx;
+  font-size: 30rpx;
+}
+.red{
+  color: red;
+}
+/* .moneytxt{
+  margin-left: 30rpx;
+} */
+.mg-t{
+  margin-top: 20rpx;
+}
+.blue{
+  color: #01a8ff;
+}
+.t-l{
+  margin-left: 170rpx;
+  margin-top: 10rpx;
+}
+.lw{
+  width:140rpx ;
+}
+.textc{
+  text-align: center;
+  margin-top: 40rpx;
+}

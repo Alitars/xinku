@@ -1,0 +1,14 @@
+/* pages/addCard/addCard.wxss */
+.card{
+  width: 100%;
+}
+.add{
+  background-color: #ffffff;
+  margin: 32rpx;
+  border-radius: 10rpx;
+  padding: 30rpx;
+  box-shadow: 0px 10rpx 10rpx 0px rgba(0,0,0,0.04);
+}
+.btn{
+  text-align: center;
+}

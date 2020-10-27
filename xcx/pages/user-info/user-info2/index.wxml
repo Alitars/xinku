@@ -1,0 +1,119 @@
+<view class="container">
+  <!-- <van-nav-bar left-text="个人信息" left-arrow bind:click-left="onClickLeft" bind:click-right="onClickRight" /> -->
+  <view class="content">
+    <van-cell-group>
+      <van-field value="{{ form.name }}" id="name" label="我的名字" bind:change="onFormChange" border="{{ true }}" error-message="{{errMsg.name}}" clearable="{{true}}"/>
+    </van-cell-group>
+    <van-cell-group>
+      <van-field model:value="{{ form.age }}" id="age" label="年龄" bind:change="onFormChange" border="{{ true }}" error-message="{{errMsg.age}}" clearable="{{true}}"/>
+    </van-cell-group>
+    <van-cell-group>
+      <van-field model:value="{{ form.idNum }}" id="idNum" label="身份证号码" bind:change="onFormChange" border="{{ true }}" error-message="{{errMsg.idNum}}" clearable="{{true}}"/>
+    </van-cell-group>
+    <van-cell-group>
+      <van-radio-group value="{{ form.sex }}" bind:change="onFormChange" id="sex">
+        <van-row>
+          <van-col span="8">
+            <van-cell title="性别" />
+          </van-col>
+          <van-col span="8">
+            <van-cell>
+              <van-radio name="0" checked-color="#07c160">男</van-radio>
+            </van-cell>
+          </van-col>
+          <van-col span="8">
+            <van-cell>
+              <van-radio name="1" checked-color="#07c160">女</van-radio>
+            </van-cell>
+          </van-col>
+        </van-row>
+      </van-radio-group>
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="证件有效期（起）" id="idEffecDate" value="{{ idEffecDate }}" bind:click="onDateDisplay" />
+      <!-- <van-cell title="证件有效期（起）" id="idEffecDate" value-class="value-class" value="{{ form.idEffecDate }}" bind:click="onDateDisplay" /> -->
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="证件有效期（止）" id="expDay" value="{{ expDay }}" bind:click="onDateDisplay" />
+      <!-- <van-cell title="证件有效期（止）" value="{{expDay}}"  id="expDay" bind:click="showBankPopup"/> -->
+      <!-- <van-field value="{{ form.licIssuAutho }}" id="licIssuAutho" label="发证机关" bind:change="onFormChange" border="{{ true }}" error-message="{{errMsg.licIssuAutho}}" clearable="{{true}}"/> -->
+    </van-cell-group>
+    <van-cell-group>
+      <van-field value="{{ form.licIssuAutho }}" id="licIssuAutho" label="发证机关" bind:change="onFormChange" border="{{ true }}" error-message="{{errMsg.licIssuAutho}}" clearable="{{true}}"/>
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="开户银行" value="{{bankName}}" bind:click="showBankPopup"/>
+    </van-cell-group>
+    <van-cell-group>
+      <van-field value="{{ form.cardNum }}" label="银行卡号" id="cardNum" bind:change="onFormChange" border="{{ true }}"  error-message="{{errMsg.cardNum}}" clearable="{{true}}"/>
+    </van-cell-group>
+    <view class="btn-wrap margin-bottom-20 margin-top-20">
+      <!-- upShopLogo -->
+      <van-button type="info" block class="margin-bottom" bind:click="showIdCardChoosePopup">
+        身份证拍照上传
+      </van-button>
+    </view>
+    <view class="form-item .margin-bottom-20 margin-top-20">
+      <van-cell-group >
+        <van-row>
+          <van-col offset="32rpx" span="12">
+            <van-field value="{{ form.codeValidate }}" id="codeValidate" bind:change="onFormChange" border="{{true}}" placeholder="输入验证码" error-message="{{errMsg.codeValidate}}"/>
+          </van-col>
+          <van-col span="12">
+            <van-button type="info" block bind:click="sendSecurityCode" disabled="{{sendBtnDisable}}">
+              {{sendBtnText}}
+            </van-button>
+          </van-col>
+        </van-row>
+      </van-cell-group>
+    </view>
+    
+
+    <view class="btn-wrap margin-bottom-40">
+      <van-row>
+        <van-col span="10">
+          <van-button type="info" block bind:click="saveForm">保存</van-button>
+        </van-col>
+        <van-col span="10" offset="4">
+          <van-button custom-class="cancel-btn" block bind:click="cancel">取消</van-button>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+</view>
+
+<!-- 有效期起始时间 -->
+<van-popup show="{{ idEffecDateShow }}" position="bottom" bind:close="onBankClose">
+  <van-datetime-picker type="date" value="{{ startDateVal }}" cancel-button-text="" id="idEffecDate" min-date="{{ minDate }}" max-date="{{maxDate}}" bind:input="onDateChange" bind:confirm="onDatePickerClose" />
+</van-popup>
+
+<!-- 有效期结束时间 -->
+<van-popup show="{{ expDayShow }}" position="bottom" bind:close="onBankClose">
+  <van-datetime-picker type="date" cancel-button-text="" value="{{ endDateVal }}" id="expDay" min-date="{{ minDate }}" max-date="{{maxDate}}" bind:input="onDateChange" bind:confirm="onDatePickerClose" />
+</van-popup>
+
+<!-- 开户银行 -->
+<van-popup show="{{ bankShow }}" position="bottom" bind:close="onBankClose">
+  <van-picker columns="{{ banks }}" default-index="{{form.bankId-1}}" bind:change="onBankChange" />
+</van-popup>
+
+<!-- 身份证 -->
+<van-popup show="{{ idCardChooseShow }}" position="bottom" bind:close="onIdCardClose">
+  <view class="idcard-wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="choose-idcard" id="imageBefore" bindtap="upPhoto">
+      <!-- <view wx:if="{{!idCardImgs.imageBeforeUrl}}" class="choose-idcard" hover-class="none" hover-stop-propagation="false">
+        
+      </view> -->
+      <van-image wx:if="{{!idCardImgs.imageBeforeUrl}}" width="100%" height="100%" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-H42uAP77NAAAdAFnpBsU341.png" />
+      <van-image wx:if="{{idCardImgs.imageBeforeUrl}}" width="100%" height="100%" src="{{idCardImgs.imageBeforeUrl}}" />
+    </view>
+    <view class="choose-idcard" id="imageAfter" bindtap="upPhoto">
+      <!-- <view wx:if="{{!idCardImgs.imageAfterUrl}}" class="choose-idcard" hover-class="none" hover-stop-propagation="false">
+        上传身份证反面
+      </view> -->
+      <van-image wx:if="{{!idCardImgs.imageAfterUrl}}" width="100%" height="100%" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-H45WAI0qNAAArNZt6nOs347.png" />
+      <van-image wx:if="{{idCardImgs.imageAfterUrl}}" width="100%" height="100%" src="{{idCardImgs.imageAfterUrl}}" />
+    </view>
+    <van-button type="info" block bind:click="uploadIdcardImgs">保存</van-button>
+  </view>
+</van-popup>

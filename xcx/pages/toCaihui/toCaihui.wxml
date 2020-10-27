@@ -1,0 +1,64 @@
+<view class="info">
+  <view class="top">
+    <view class="clearfix">
+      <view class="fl f18">产品推广</view>
+      <view class="fr f16">￥100.00</view>
+    </view>
+    <view class="adress clearfix">
+      <view class="fl">斜土路2669号</view>
+      <view class="fr">发布日期：2020-10-14</view>
+    </view>
+    <view class="company clearfix">
+      <view class="fl imgbox">
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-IDj6Ab1S0AAA9SStOvaw071.png"></image>
+        <!-- <image class="small-img" src="https://xinkush.vipcaihui.cn/{{list.logo}}" wx:else></image> -->
+      </view>
+      <view class="fl box">
+        <view class="name ellipsis">上海彩荟网络科技有限公司</view>
+        <view class="bottom clearfix">
+          <view class="fl">
+            <view class="checktext">
+              <image class="check" src="/images/check.png"></image> 
+              <view class="checkt"> 认证企业</view>
+            </view>
+          </view>
+          <!-- <view class="fl view">已浏览：{{list.browseTimes == null?0:list.browseTimes}}次</view>
+          <view class="abs" bindtap="gotoTask">{{statustxt}}</view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="zdetail">
+    <view class="tit">推广活动内容</view>
+    <image class="activity" src="https://xinkush.vipcaihui.cn/image/M00/00/06/rB_sZV-WmyqANMjvAAD4ukx913U757.png"></image>
+  </view>
+  <!-- <view class="line"></view> -->
+  <view class="zdetail">
+    <view class="tit">平台介绍</view>
+    <view class="d-txt">
+      协议-签订
+    </view>
+    <view class="d-txt">
+      薪酷作为共享经济灵活用工平台，分别与企业、自由职业者签订相关服务协议
+    </view>
+    <view class="d-txt">
+      任务-服务
+</view>
+<view class="d-txt">
+  企业发布任务，自由职业者接受任务提供服务，根据工作交付结果，企业支付费用
+</view>
+    <view class="d-txt">
+      发放-报税
+    </view>
+    <view class="d-txt">
+      过薪酷灵活用工平台发放给自由职业者，同时申报个税
+    </view>
+  </view>
+  <view class="ffBox"></view>
+  <view class="fixed">
+    <view class="fixedBox">
+      <van-button type="info" size="large" bind:click="want" custom-style="">我要推广</van-button>
+    </view>
+  </view>
+</view>

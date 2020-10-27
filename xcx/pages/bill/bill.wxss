@@ -1,0 +1,48 @@
+page{
+  background-color: #F8F9F9;
+  height: 100vh;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.bill{
+  background-color: #fff;
+  padding: 32rpx;
+}
+.line{
+  height: 20rpx;
+  width: 100%;
+  background-color: #F8F9F9;
+}
+
+.coinFrom{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #696969;
+}
+.coinbox{
+  box-sizing: border-box;
+  width: 100%;
+}
+.ltext{
+  font-size: 28rpx;
+  font-weight: 600;
+
+}
+.rtext{
+  font-size: 24rpx;
+  color: #696969;
+}
+.tips{
+  background-color: #f91;
+  height: 30rpx;
+  width:100%;
+}

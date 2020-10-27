@@ -1,0 +1,87 @@
+  <view class="content">
+    <van-cell-group>
+      <van-cell title="我的名字" value="{{infoList.name}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="年龄" value="{{infoList.age}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="身份证号码" value="{{infoList.idNum}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="性别" value="{{infoList.sex == 0?'男':'女'}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="证件有效期（起）" value="{{infoList.idEffecDate}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="证件有效期（止）" value="{{infoList.expDay}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="发证机关" value="{{infoList.licIssuAutho}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="开户银行" value="{{cardList.bankName}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="银行卡号" value="{{cardList.cardNum}}" />
+    </van-cell-group>
+    <van-cell-group>
+      <van-cell title="上海银行E账户" value="{{infoList.eAccountNo}}" />
+    </van-cell-group>
+    <view class="btn-wrap margin-bottom-20 margin-top-20">
+      <!-- upShopLogo -->
+      <van-button type="info" block class="margin-bottom" bind:click="showIdCardChoosePopup">
+        身份证拍照上传
+      </van-button>
+    </view>
+
+    <view class="form-item margin-bottom-20 margin-top-20">
+      <van-cell-group >
+        <van-row>
+          <van-col offset="32rpx" span="12">
+            <van-field value="{{ form.codeValidate }}" id="codeValidate" bind:change="onFormChange" border="{{true}}" placeholder="输入验证码"/>
+          </van-col>
+          <van-col span="12">
+            <van-button type="info" block bind:click="sendSecurityCode" disabled="{{sendBtnDisable}}">
+              {{sendBtnText}}
+            </van-button>
+          </van-col>
+        </van-row>
+      </van-cell-group>
+    </view>
+
+    <view class="btn-wrap margin-bottom-40">
+      <van-row>
+        <van-col span="10">
+          <van-button type="info" block bind:click="saveForm">保存</van-button>
+        </van-col>
+        <van-col span="10" offset="4">
+          <van-button custom-class="cancel-btn" block bind:click="cancel">取消</van-button>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+
+  <!-- 身份证 -->
+<van-popup show="{{ idCardChooseShow }}" position="bottom" bind:close="onIdCardClose">
+  <view class="idcard-wrap" hover-class="none" hover-stop-propagation="false">
+    <view class="choose-idcard" id="imageBefore" bindtap="upPhoto">
+      <!-- <view wx:if="{{!idCardImgs.imageBeforeUrl}}" class="choose-idcard" hover-class="none" hover-stop-propagation="false">
+        
+      </view> -->
+      <van-image wx:if="{{!idCardImgs.imageBeforeUrl}}" width="100%" height="100%" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-H42uAP77NAAAdAFnpBsU341.png" />
+      <van-image wx:if="{{idCardImgs.imageBeforeUrl}}" width="100%" height="100%" src="{{idCardImgs.imageBeforeUrl}}" />
+    </view>
+    <view class="choose-idcard" id="imageAfter" bindtap="upPhoto">
+      <!-- <view wx:if="{{!idCardImgs.imageAfterUrl}}" class="choose-idcard" hover-class="none" hover-stop-propagation="false">
+        上传身份证反面
+      </view> -->
+      <van-image wx:if="{{!idCardImgs.imageAfterUrl}}" width="100%" height="100%" src="https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV-H45WAI0qNAAArNZt6nOs347.png" />
+      <van-image wx:if="{{idCardImgs.imageAfterUrl}}" width="100%" height="100%" src="{{idCardImgs.imageAfterUrl}}" />
+    </view>
+    <van-button type="info" block bind:click="uploadIdcardImgs">保存</van-button>
+  </view>
+</van-popup>
+<!-- 弹框 -->
+<van-dialog id="van-dialog" />

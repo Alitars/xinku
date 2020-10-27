@@ -1,0 +1,66 @@
+<!-- index.wxml -->
+<view class="regist-container" hover-class="none" hover-stop-propagation="false">
+  <!-- <view class="logo-wrap" hover-class="none" hover-stop-propagation="false"></view> -->
+  <!-- <view class="logo" hover-class="none" hover-stop-propagation="false">
+    <van-image width="100" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+  </view> -->
+  <view>
+    <image src="https://xinkush.vipcaihui.cn/image/M00/00/04/rB_sZV9v7JWAGF3OAACnyNtaVWk953.png" class="topimg"></image>
+  </view>
+  <view hover-class="none" class="tabs-wrap" hover-stop-propagation="false">
+    <!-- <van-tabs nav-class="nav" tab-active-class="tab-active" tab-class="default-tab" line-height="2rpx" active="{{ active }}" bind:change="onTabChange" type="line"> -->
+    <van-tabs line-height="4rpx" color="#fff" active="{{ active }}" bind:change="onTabChange">
+      <van-tab title="找回密码">
+        <view class="form">
+          <view class="form-item">
+            <van-field border="{{true}}" type="number" bind:change="onFormChange" value="{{form.phone}}" id="phone" placeholder="请输入手机号" error-message="{{phoneErrMsg}}" label="手机号"/>
+          </view>
+          <view class="form-item">
+            <van-field border="{{true}}" type="password" bind:change="onFormChange" value="{{form.password}}" id="password" placeholder="请输入大小写数字格式" error-message="{{passwordErrMsg}}" label="密码"/>
+          </view>
+          <view class="form-item">
+            <van-field border="{{true}}" type="password" bind:change="onFormChange" value="{{form.truepassword}}" id="truepassword" placeholder="请再次输入新密码" error-message="{{truepasswordErrMsg}}" label="确认密码"/>
+          </view>
+          <view class="form-item">
+            <van-row type="flex" justify="center" align="center">
+              <van-col span="16">
+                <van-field border="{{true}}" placeholder="输入验证码" type="number" bind:change="onFormChange" value="{{form.code}}" id="code" error-message="{{codeErrMsg}}"  label="验证码"/>
+              </van-col>
+              <van-col span="8">
+                <van-button type="info" custom-class="rigst-btn" bind:click="sendSecurityCode" disabled="{{sendBtnDisable}}" size="small">
+                  {{sendBtnText}}
+                </van-button>
+              </van-col>
+            </van-row>
+          </view>
+          <!-- <view class="form-item accept-info">
+            <view bindtap="showtoast">
+              <van-checkbox value="{{ personAccept }}" disabled shape="square" data-form="person" bind:change="onChange" icon-size="14px">
+              我已阅读并接受
+            </van-checkbox>
+            </view>
+            
+            <view class="regist-wrap">
+              <text class="a-text" wx:for="{{protocols}}" wx:key="name" data-item="{{item}}" bindtap="showPopup" data-id="1">
+                {{item.name}}
+              </text>
+            </view>
+          </view> -->
+          <view class="form-item login-btn">
+            <van-button type="info" bind:click="regist" disabled="{{personRegistDisabled}}" block>
+              修改密码
+            </van-button>
+          </view>
+          
+          <view class="a-text" bindtap="goBack" style="text-align:right;padding-right:32rpx;"><span style="color:#AEAEAE;">已有账号？</span>返回登录页面</view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+  <!-- <van-popup show="{{ showProtocol }}" custom-class="popup" bind:close="onClose">
+    <view class="protocol-title">{{protocol.name}}</view>
+    <text>{{protocol.content}}</text>
+    <van-button type="info" custom-class="comfirm-btn" bind:click="comfirmRead" block>确认阅读</van-button>
+  </van-popup> -->
+</view>
+<van-dialog id="van-dialog"/>

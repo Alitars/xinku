@@ -1,0 +1,82 @@
+<view class="head">
+  <view class="top">
+    <view class="count">
+      账号余额 ：
+      <!-- <image class="set" src="/images/setpass.png" bindtap="gotoset"></image> -->
+    </view>
+    <view class="num">
+      {{money}}   元
+    </view>
+    <view class="card">
+      <block wx:for="{{cardList}}" wx:key="index">
+        <view class="cid">
+        {{item.cardNum}}
+          <button class="abs" bindtap="showPopup" data-id="{{item.cardId}}">提现</button>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- <view class="addcard" bindtap="goIdcard">添加银行卡</view> -->
+  <view class="detail">
+    <van-tabs swipeable="true" color="#40A9FF" active="{{ active }}" bind:change="onTabChange">
+      <van-tab title="我的账单">
+        <block wx:for="{{myAcountList}}" wx:key="index">
+          <view class="coinbox">
+            <view class="clearfix">
+              <view class="fl ltext">{{item.transType == 1?'-':'+'}}{{item.money}}</view>
+              <view class="fr rtext">{{item.startTime}}</view>
+            </view>
+            <view class="clearfix coinFrom">
+              <view class="fl">{{item.transType == 1?'用户提现':'工作薪资'}}</view>
+              <view class="fr" wx:if="{{item.transType == 1}}">{{item.state==1?'打款中':(item.state == 2?'已打款':(item.state == 4?'提现失败':'提现成功'))}}</view>
+              <view class="fr" wx:if="{{item.transType == 2}}">{{item.state==0?'待确认':(item.state == 1?'已发放':'处理中')}}</view>
+            </view>
+          </view>
+        </block>
+      </van-tab>
+      <van-tab title="薪资记录">
+        <block wx:for="{{recordsList}}" wx:key="index">
+          <view class="coinbox">
+            <view class="clearfix">
+              <view class="fl ltext">{{item.salaryState == 1?'+':'-'}}{{item.salaryMoney}}</view>
+              <view class="fr rtext">{{item.updateTime}}</view>
+            </view>
+            <!-- <view class="coinFrom">{{item.transType == 1?'用户提现':'工作薪资'}}</view> -->
+            <view class="coinFrom"></view>
+          </view>
+        </block>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
+
+<!-- 弹出窗 -->
+<van-popup show="{{ show }}" bind:close="onClose" custom-style="width:80%" round>
+  <view class="moneyBox">
+    <view class="clearfix">
+      <view class="fl lw">可用余额:</view>
+      <view class="fl red moneytxt">{{money}}元</view>
+    </view>
+    <view class="clearfix mg-t">
+      <view class="fl lw">提款银行:</view>
+      <view class="fl moneytxt ">{{cardList[0].bankName}}(尾号{{str}})</view>
+    </view>  
+    <view class="clearfix mg-t">
+      <view class="fl lw">真实姓名:</view>
+      <view class="fl moneytxt ">{{infoName}}</view>
+    </view>
+    <view class="clearfix mg-t">
+      <view class="fl lw">提款金额:</view>
+      <input type="digit" placeholder="请输入需要提现金额" class="fl moneytxt" value="{{moneyNum}}" bindinput="moneyChange"/>
+    </view> 
+    <view class="red t-l" wx:if="{{error}}">{{tip}}</view>
+    <view class="clearfix mg-t">
+      <view class="fl lw">到账时间:</view>
+      <view class="fl moneytxt "> 预计<text class="blue">3~7</text>个工作日内到账</view>
+      
+    </view>
+    <view class="textc">
+      <van-button type="info" bind:click="nowSub" size="small">立即提款</van-button>
+    </view>
+  </view>
+</van-popup>

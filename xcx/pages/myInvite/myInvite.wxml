@@ -1,0 +1,116 @@
+<view class="myjob blue" bindtap="goall">
+    <view class="all">{{amount}}.00元</view>
+    <view class="alltext">总收益</view>
+</view>
+<view class="myjob">
+  <view class="clearfix">
+    <view class="colordiv fl"></view>
+    <view class="jobtit fl">我的企业社群</view>
+  </view>
+  <view class="sondiv clearfix">
+      <view class="statehalf fl" bindtap="gotobill" data-type="2">
+        <view>{{report.inviteEnterpriseCount}}</view>
+        <view class="stateName">推广</view>
+      </view>
+      <view class="statehalf fl">
+        <view>{{report.registerEnterpriseCount}}</view>
+        <view class="stateName">成功注册</view>
+      </view>
+  </view>
+</view>
+
+<view class="myjob">
+  <view class="clearfix">
+    <view class="colordiv fl"></view>
+    <view class="jobtit fl">我的个人社群</view>
+  </view>
+  <view class="sondiv clearfix">
+    <view class="statehalf fl" bindtap="gotobill" bindtap="gotobill" data-type="1">
+      <view>{{report.invitePersonalCount}}</view>
+      <view class="stateName">推广</view>
+    </view>
+    <view class="statehalf fl">
+      <view>{{report.registerPersonalCount}}</view>
+      <view class="stateName">成功注册</view>
+    </view>
+  </view>
+</view>
+
+<view class="myjob">
+  <view class="clearfix">
+    <view class="colordiv fl"></view>
+    <view class="jobtit fl">今日详情</view>
+  </view>
+  <view class="sondiv">
+    <view class="clearfix line">
+      <view class="tip">企业：</view>
+        <view class="state fl" bindtap="gototoday" data-type="2" data-time="today">
+          <view>{{todayReport.inviteEnterpriseCount}}</view>
+          <view class="stateName">推广</view>
+        </view>
+        <view class="state fl">
+          <view>{{todayReport.registerEnterpriseCount}}</view>
+          <view class="stateName">成功注册</view>
+        </view>
+        <view class="state fl" bindtap="goBill" data-time="{{today}}" data-type="2">
+          <view>{{todayNum}}</view>
+          <view class="stateName">今日收益</view>
+        </view>
+    </view>
+    <!-- 个人 -->
+    <view class="clearfix">
+      <view class="tip">个人：</view>
+      <view class="state fl" data-type="1" data-time="today" bindtap="gototoday">
+          <view>{{todayReport.invitePersonalCount}}</view>
+          <view class="stateName">推广</view>
+        </view>
+        <view class="state fl">
+          <view>{{todayReport.registerPersonalCount}}</view>
+          <view class="stateName">成功注册</view>
+        </view>
+        <!-- <view class="state fl">
+          <view>0</view>
+          <view class="stateName">今日收益</view>
+        </view> -->
+    </view>
+  </view>
+</view>
+<view class="myjob">
+  <view class="clearfix">
+    <view class="colordiv fl"></view>
+    <view class="jobtit fl">昨日详情</view>
+  </view>
+  <view class="sondiv">
+    <view class="clearfix line">
+      <view class="tip">企业：</view>
+        <view class="state fl" bindtap="goyesterday" data-type="2" data-time="yesterday">
+          <view>{{yesterdayReport.inviteEnterpriseCount}}</view>
+          <view class="stateName">推广</view>
+        </view>
+        <view class="state fl">
+          <view>{{yesterdayReport.registerEnterpriseCount}}</view>
+          <view class="stateName">成功注册</view>
+        </view>
+        <view class="state fl" bindtap="goBill" data-time="{{yesterday}}" data-type="2">
+          <view>{{yesterdayNum}}</view>
+          <view class="stateName">昨日收益</view>
+        </view>
+    </view>
+    <!-- 个人 -->
+    <view class="clearfix">
+      <view class="tip">个人：</view>
+      <view class="state fl" bindtap="goyesterday" data-type="1" data-time="yesterday">
+          <view>{{yesterdayReport.invitePersonalCount}}</view>
+          <view class="stateName">推广</view>
+        </view>
+        <view class="state fl">
+          <view>{{yesterdayReport.registerPersonalCount}}</view>
+          <view class="stateName">成功注册</view>
+        </view>
+        <!-- <view class="state fl">
+          <view>0</view>
+          <view class="stateName">昨日收益</view>
+        </view> -->
+    </view>
+  </view>
+</view>

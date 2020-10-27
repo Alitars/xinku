@@ -1,0 +1,29 @@
+/* pages/defeatCheck/defeatCheck.wxss */
+.margin-bottom-20{
+  margin-bottom: 20rpx;
+}
+
+.margin-top-20{
+   margin-top: 20rpx;
+}
+.margin-bottom-40{
+  margin-bottom: 40rpx;
+}
+.content{
+  width: 690rpx;
+  margin-left: 30rpx;
+}
+
+.idcard-wrap{
+  padding: 25rpx;
+}
+
+.choose-idcard{
+  width: 700rpx;
+  height: 450rpx;
+  line-height: 450rpx;
+  text-align: center;
+  background-color: rgba(153, 153, 153, 0.1);
+  /* margin-left: 25rpx; */
+  margin-bottom: 40rpx;
+}

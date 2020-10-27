@@ -1,0 +1,138 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.13.0",
+  "appid": "wx4f3bc276ec7424f6",
+  "projectname": "xinku",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/userCenter/userCenter",
+          "pathName": "pages/userCenter/userCenter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/login/regist/index",
+          "pathName": "pages/login/regist/index",
+          "query": "share=1",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "pages/user-info/user-info1/index",
+          "pathName": "pages/user-info/user-info1/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "pages/bill/bill",
+          "pathName": "pages/bill/bill",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "pages/myInvite/myInvite",
+          "pathName": "pages/myInvite/myInvite",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/moneyBag/moneyBag",
+          "pathName": "pages/moneyBag/moneyBag",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/homepage/homepage",
+          "pathName": "pages/homepage/homepage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/addCard/addCard",
+          "pathName": "pages/addCard/addCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "pages/infoshow/infoshow",
+          "pathName": "pages/infoshow/infoshow",
+          "query": "id=1&pid=26",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

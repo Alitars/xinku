@@ -1,0 +1,51 @@
+/* pages/spread/spread.wxss */
+page{
+  background-color: #F8F9F9;
+  height: 100vh;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.contain{
+  margin: 0 20rpx 0;
+  background-color: #fff;
+}
+.tit{
+  padding: 20rpx;
+  text-align: center;
+}
+.tit view{
+  font-size: 32rpx;
+}
+.ellipsis {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.tip{
+  width: 30%;
+}
+.tip1{
+  width: 25%;
+}
+.tip2{
+  width: 45%;
+}
+.list{
+  border-bottom: 1rpx solid #F8F9F9;
+}
+.list view{
+  font-size: 26rpx;
+  color: #7B7B7B;
+}

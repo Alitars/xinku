@@ -1,0 +1,71 @@
+page{
+  background-color: #F8F9F9;
+  height: 100vh;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.myjob{
+  margin: 32rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-shadow: 0px 10rpx 10rpx 0px rgba(0,0,0,0.04);
+}
+.colordiv{
+  height: 40rpx;
+  width: 10rpx;  
+  background-color: #A8D0F0;
+  margin-top: 4rpx;
+}
+.jobtit{
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  font-weight:600;
+}
+.sondiv{
+  text-align: center;
+  color: #7B7B7B;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+.state{
+  width: 33.33%;
+}
+.statehalf{
+  width: 50%;
+}
+.stateName{
+  margin-top: 10rpx;
+}
+.blue{
+  background-color: #40a9ff;
+  color: #fff;
+  text-align: center;
+}
+.all{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.alltext{
+  margin-top: 16rpx;
+}
+.tip{
+  margin-left: 36rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: left;
+  margin-top: 20rpx;
+}
+.line{
+  border-bottom: 2rpx solid #F6F6F6;
+  padding-bottom: 20rpx;
+}

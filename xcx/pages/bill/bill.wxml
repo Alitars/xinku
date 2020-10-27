@@ -1,0 +1,16 @@
+<!-- <view class="tips"></view> -->
+<block wx:for="{{list}}" wx:key="index">
+  <view class="bill">
+    <view class="coinbox">
+      <view class="clearfix">
+        <view class="fl ltext">+{{item.amount}}.00 元</view>
+        <view class="fr rtext">{{item.createDate}}</view>
+      </view>
+      <view class="clearfix coinFrom">
+        <view class="fl">{{item.orgName}}</view>
+        <view class="fr" >{{item.remark}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+</block>
