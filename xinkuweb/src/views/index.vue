@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-19 17:04:39
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-26 10:29:48
+ * @LastEditTime: 2020-10-28 14:09:14
 -->
 <template>
   <div class="container">
@@ -25,6 +25,12 @@
           @click="goOther(4)"
         >
           关于我们
+        </div>
+        <div
+          :class="[showBorder == 5 ? 'active fl' : 'fl']"
+          @click="goOther(5)"
+        >
+          管理系统
         </div>
       </div>
     </div>
@@ -58,6 +64,11 @@ export default {
     },
     goOther (e) {
       this.showBorder = e
+      if (e == 5) {
+        this.$router.push({
+          path: "/Homes"
+        })
+      }
     },
   },
   // 生命周期 - 创建完成（可以访问当前this实例）

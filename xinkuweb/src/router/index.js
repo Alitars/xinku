@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-19 11:32:51
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-26 16:04:28
+ * @LastEditTime: 2020-10-28 16:18:46
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -27,6 +27,8 @@ import extension from '../views/admin/extension.vue' //我的推广
 import login from '../views/login.vue'  //登录
 import forgetPass from '../views/forgetPass.vue'  //登录
 import register from '../views/register.vue'  //登录
+import editAcount from '../views/admin/editAcount.vue'  //修改对公账号
+
 
 
 Vue.use(VueRouter)
@@ -36,6 +38,7 @@ const routes = [
     path: '/',
     name: 'index',
     component: index,
+    redirect: "/login",
     children:[
       {
         // 登录页面
@@ -168,6 +171,13 @@ const routes = [
         name: "extension",
         component: extension,
         meta: { title: '我的推广' }
+      },
+      {
+        //修改对公账号
+        path: "/editAcount",
+        name: "editAcount",
+        component: editAcount,
+        meta: { title: '修改对公账号' }
       },
       
     ]

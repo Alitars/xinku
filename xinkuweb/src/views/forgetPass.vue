@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-26 15:19:17
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-27 16:19:33
+ * @LastEditTime: 2020-10-28 09:58:19
 -->
 <template>
   <div class="login clearfix">
@@ -122,22 +122,29 @@ export default {
       }
     };
     var validatePass = (rule, value, callback) => {
-      if (value == '') {
-        callback(new Error('请输入密码'));
+      if (value == "") {
+        callback(new Error("请输入密码!"));
+      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+        callback(new Error("请输入正确密码格式!"));
       } else {
-        if (this.ruleForm.checkPass !== '') {
-          this.$refs.ruleForm.validateField('checkPass');
-        }
         callback();
       }
     };
-    var checkCode = (rule, value, callback) => {
-      if (value == '') {
-        callback(new Error('请输入验证码'));
+    var checkPass = (rule, value, callback) => {
+      if (value == "") {
+        callback(new Error("请输入密码!"));
+      } else if (value != this.ruleForm.password) {
+        callback(new Error("密码不一致，请重新输入!"));
+      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+        callback(new Error("请输入正确密码格式!"));
       } else {
-        if (this.ruleForm.checkCode !== '') {
-          this.$refs.ruleForm.validateField('checkCode');
-        }
+        callback();
+      }
+    };
+    var code = (rule, value, callback) => {
+      if (value == "") {
+        callback(new Error("请输入验证码！"));
+      } else {
         callback();
       }
     };
@@ -145,7 +152,8 @@ export default {
       ruleForm: {
         phone: '',
         password: '',
-        // checkCode: '',
+        checkPass: '',
+        code: '',
       },
       rules: {
         password: [
@@ -154,9 +162,12 @@ export default {
         phone: [
           { validator: checkphone, trigger: 'blur' }
         ],
-        checkCode: [
-          { validator: checkCode, trigger: 'blur' }
-        ]
+        checkPass: [
+          { validator: checkPass, trigger: 'blur' }
+        ],
+        code: [
+          { validator: code, trigger: 'blur' }
+        ],
       },
       disabled: false,
       time: 0,
@@ -181,7 +192,6 @@ export default {
         })
         return
       } else {
-        console.log(this.ruleForm.phone);
         this.$message({
           message: '发送成功',
           type: 'success',
@@ -219,7 +229,7 @@ export default {
           // 发送请求跳转
         } else {
           this.$message({
-            message: '请核实输入的手机号以及密码',
+            message: '请核实输入的相关信息！',
             center: true,
             type: 'warning'
           })

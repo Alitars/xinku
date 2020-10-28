@@ -4,14 +4,14 @@
       <img src="../assets/logo.png" alt="" class="logo-icon" />
       <!-- 账号登录 -->
       <div class="account fr">
-        <el-dropdown>
+        <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             上海彩荟网络科技有限公司<i
               class="el-icon-arrow-down el-icon--right"
             ></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -116,6 +116,7 @@
                 <el-menu-item index="5-2">修改支付密码</el-menu-item>
                 <el-menu-item index="5-3">修改邮箱</el-menu-item>
                 <el-menu-item index="5-4">修改企业管理员</el-menu-item>
+                <el-menu-item index="5-5">修改对公账号</el-menu-item>
               </el-submenu>
               <!-- 我的推广 -->
               <el-submenu index="6">
@@ -224,11 +225,24 @@ export default {
             path: "/contactsCode",
           });
           break;
-        case "6":
+        case "5-5":
+          this.$router.push({
+            path: "/editAcount",
+          });
+          break;
+        case "6-1":
           this.$router.push({
             path: "/extension",
           });
           break;
+      }
+    },
+    // 退出登录
+    handleCommand (e) {
+      if (e == 'loginOut') {
+        this.$router.push({
+          path: '/login'
+        })
       }
     },
 

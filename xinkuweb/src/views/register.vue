@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-26 16:03:15
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-27 15:42:19
+ * @LastEditTime: 2020-10-28 09:47:56
 -->
 <template>
   <div class="box">
@@ -149,7 +149,7 @@ export default {
     var password = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入密码!"));
-      } else if (!/(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{6,16}/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确密码格式!"));
       } else {
         callback();
@@ -160,7 +160,7 @@ export default {
         callback(new Error("请输入密码!"));
       } else if (value != this.ruleForm.password) {
         callback(new Error("密码不一致，请重新输入!"));
-      } else if (!/(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{6,16}/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确密码格式!"));
       } else {
         callback();

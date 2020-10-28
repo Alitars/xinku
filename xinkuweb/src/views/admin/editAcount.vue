@@ -1,15 +1,12 @@
 <!--
  * @Descripttion: 
  * @Author: luozhongpeng
- * @Date: 2020-10-27 18:45:34
+ * @Date: 2020-10-28 16:17:20
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-28 14:51:04
+ * @LastEditTime: 2020-10-28 16:20:25
 -->
 <template>
-  <div class="info">
-    <div class="tit"></div>
-    <div class="my"></div>
-  </div>
+  <div class="">修改对公账号</div>
 </template>
 
 <script>
