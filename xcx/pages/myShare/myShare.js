@@ -43,7 +43,8 @@ Page({
       })
     }else{
       this.setData({
-        companyShow:false
+        companyShow:false,
+        companyName:''
       })
     }
   },

@@ -6,9 +6,9 @@
   </view>
   <block wx:for="{{list}}" wx:key="index">
     <view class="clearfix tit list">
-      <view class="fl tip ellipsis">{{item.type==1?item.name:item.orgName}}</view>
-      <view class="fl tip1">{{item.regStatus ==1?'待注册':'注册成功'}}</view>
-      <view class="fl tip2">{{item.createDate}}</view>
+      <view class="fl tip ellipsis">{{item.type==1?(item.name== null?item.phone:item.name):(item.orgName == null ?item.phone:item.orgName)}}</view>
+      <view class="fl tip1">{{item.regStatus ==1?'待注册':item.regStatus ==2?'注册中':'注册成功'}}</view>
+      <view class="fl tip2">{{item.regStatus == 1 ||item.regStatus == 2?item.createDate:item.regDate}}</view>
     </view>
   </block>
 </view>

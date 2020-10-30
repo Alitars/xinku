@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-26 15:19:17
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-28 09:58:19
+ * @LastEditTime: 2020-10-30 15:57:03
 -->
 <template>
   <div class="login clearfix">
@@ -35,7 +35,7 @@
             style="margin: 0 auto; margin-bottom: 20px"
           >
             <el-input
-              placeholder="请输入手机号码"
+              placeholder="请输入企业管理员手机号码"
               v-model="ruleForm.phone"
               clearable
             >

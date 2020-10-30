@@ -1,6 +1,12 @@
-<view class="myjob blue" bindtap="goall">
+<view class="myjob blue clearfix" bindtap="goall">
+  <view class="fl width3">
     <view class="all">{{amount}}.00元</view>
     <view class="alltext">总收益</view>
+  </view>
+  <view class="fl width3">
+    <view class="all">{{paidAmount}}.00元</view>
+    <view class="alltext">已提现</view>
+  </view>
 </view>
 <view class="myjob">
   <view class="clearfix">

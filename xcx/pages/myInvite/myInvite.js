@@ -29,25 +29,25 @@ Page({
     })
   },
   goBill(e){
-    // const{time,type} =e.currentTarget.dataset 
-    // wx.navigateTo({
-    //   url:'/pages/bill/bill?time=' +time+'&type=' +type,
-    // })
-    wx.showToast({
-      title: '敬请期待！',
-      icon:'none',
-      duration:700,
+    const{time,type} =e.currentTarget.dataset 
+    wx.navigateTo({
+      url:'/pages/bill/bill?time=' +time+'&type=' +type,
     })
+    // wx.showToast({
+    //   title: '敬请期待！',
+    //   icon:'none',
+    //   duration:700,
+    // })
   },
   goall(){
-    // wx.navigateTo({
-    //   url:'/pages/bill/bill',
-    // })
-    wx.showToast({
-      title: '敬请期待！',
-      icon:'none',
-      duration:700,
+    wx.navigateTo({
+      url:'/pages/bill/bill',
     })
+    // wx.showToast({
+    //   title: '敬请期待！',
+    //   icon:'none',
+    //   duration:700,
+    // })
   },
   gototoday(e){
     const {type} = e.currentTarget.dataset
@@ -97,7 +97,8 @@ Page({
     getNum(token).then((res)=>{
       this.setData({
         report:res.data,
-        amount:res.data.amount
+        amount:res.data.amount,
+        paidAmount:res.data.paidAmount
       })
     })  
     // 今日详情

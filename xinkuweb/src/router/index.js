@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-19 11:32:51
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-28 16:18:46
+ * @LastEditTime: 2020-10-30 15:44:07
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -28,6 +28,7 @@ import login from '../views/login.vue'  //登录
 import forgetPass from '../views/forgetPass.vue'  //登录
 import register from '../views/register.vue'  //登录
 import editAcount from '../views/admin/editAcount.vue'  //修改对公账号
+import forgetPay from '../views/admin/forgetPay.vue'  //修改对公账号
 
 
 
@@ -178,6 +179,13 @@ const routes = [
         name: "editAcount",
         component: editAcount,
         meta: { title: '修改对公账号' }
+      },
+      {
+        //忘记支付密码
+        path: "/forgetPay",
+        name: "forgetPay",
+        component: forgetPay,
+        meta: { title: '忘记支付密码' }
       },
       
     ]

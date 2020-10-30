@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-26 09:25:52
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-27 09:16:46
+ * @LastEditTime: 2020-10-29 16:52:45
 -->
 <template>
   <div class="login clearfix">
@@ -30,9 +30,10 @@
             style="margin: 0 auto; margin-bottom: 20px"
           >
             <el-input
-              placeholder="请输入手机号码"
+              placeholder="请输入企业管理员手机号码"
               v-model="ruleForm.phone"
               clearable
+              maxlength="11"
             >
             </el-input>
           </el-form-item>
@@ -44,6 +45,7 @@
               placeholder="请输入密码"
               v-model="ruleForm.password"
               type="password"
+              maxlength="16"
               clearable
             ></el-input>
           </el-form-item>
@@ -95,19 +97,18 @@ export default {
       // let phoneReg = /(^1[3|4|5|6|7|8|9]\d{9}$)|(^09\d{8}$)/;
       if (value == "") {
         callback(new Error("请输入手机号"));
-      } else if (!this.isCellPhone(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^1(3|4|5|6|7|8)\d{9}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确的手机号!"));
       } else {
         callback();
       }
     };
     var validatePass = (rule, value, callback) => {
-      if (value == '') {
-        callback(new Error('请输入密码'));
+      if (value == "") {
+        callback(new Error("请输入密码!"));
+      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+        callback(new Error("请输入正确密码格式!"));
       } else {
-        if (this.ruleForm.checkPass !== '') {
-          this.$refs.ruleForm.validateField('checkPass');
-        }
         callback();
       }
     };
@@ -184,19 +185,14 @@ export default {
         this.disabled = false;
       }
     },
-    // 检查手机号码
-    isCellPhone (val) {
-      if (!/^1(3|4|5|6|7|8)\d{9}$/.test(val)) {
-        return false;
-      } else {
-        return true;
-      }
-    },
     // 登录
     submitForm () {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
           // 发送请求跳转
+          this.$api.login().then(res => {
+            console.log(res)
+          })
         } else {
           this.$message({
             message: '请核实输入的手机号以及密码',

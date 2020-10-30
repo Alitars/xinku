@@ -63,68 +63,70 @@
             </div>
 
             <el-menu
-              default-active=""
+              :default-active="$route.path"
               class="el-menu-vertical-demo"
               unique-opened
-              @select="handleSelect"
               background-color="#fff"
               text-color="#333"
+              :router="true"
               active-text-color="#40a9ff"
             >
               <!-- 企业信息 -->
-              <el-menu-item index="1">
-                <i class="el-icon-setting"></i>
+              <el-menu-item index="/companyInfo">
+                <i class="iconfont icon-icon_xinyong_xianxing_jijin--copy"></i>
                 <span slot="title">企业信息</span>
               </el-menu-item>
               <!-- 职位管理 -->
               <el-submenu index="2">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="iconfont icon-qiyechaxun-copy"></i>
                   <span>职位管理</span>
                 </template>
-                <el-menu-item index="2-1">职位管理</el-menu-item>
-                <el-menu-item index="2-2">发布职位</el-menu-item>
+                <el-menu-item index="/postManage">职位管理</el-menu-item>
+                <el-menu-item index="/sendPost">发布职位</el-menu-item>
               </el-submenu>
               <!-- 企业管理 -->
               <el-submenu index="3">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="iconfont icon-qiyeguanli1-copy"></i>
                   <span>企业管理</span>
                 </template>
-                <el-menu-item index="3-1">员工管理</el-menu-item>
-                <el-menu-item index="3-2">员工薪资管理</el-menu-item>
+                <el-menu-item index="/staffManage">员工管理</el-menu-item>
+                <el-menu-item index="/salaryManage">员工薪资管理</el-menu-item>
               </el-submenu>
               <!-- 企业账户 -->
               <el-submenu index="4">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="iconfont icon-shenhe-copy"></i>
                   <span>企业账户</span>
                 </template>
-                <el-menu-item index="4-1">记账簿账号</el-menu-item>
-                <el-menu-item index="4-2">账单信息</el-menu-item>
-                <el-menu-item index="4-3">提现</el-menu-item>
-                <el-menu-item index="4-4">充值</el-menu-item>
-                <el-menu-item index="4-5">发票管理</el-menu-item>
+                <el-menu-item index="/bookAcount">记账簿账号</el-menu-item>
+                <el-menu-item index="/billInfo">账单信息</el-menu-item>
+                <el-menu-item index="/cash">提现</el-menu-item>
+                <el-menu-item index="/credit">充值</el-menu-item>
+                <el-menu-item index="/invoice">发票管理</el-menu-item>
               </el-submenu>
               <!-- 安全设置 -->
               <el-submenu index="5">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="iconfont icon-qiyeshezhi-copy"></i>
                   <span>安全设置</span>
                 </template>
-                <el-menu-item index="5-1">修改登录密码</el-menu-item>
-                <el-menu-item index="5-2">修改支付密码</el-menu-item>
-                <el-menu-item index="5-3">修改邮箱</el-menu-item>
-                <el-menu-item index="5-4">修改企业管理员</el-menu-item>
-                <el-menu-item index="5-5">修改对公账号</el-menu-item>
+                <el-menu-item index="/password">修改登录密码</el-menu-item>
+                <el-menu-item index="/payCode">修改支付密码</el-menu-item>
+                <el-menu-item index="/emailCode">修改企业邮箱</el-menu-item>
+                <el-menu-item index="/contactsCode"
+                  >修改企业管理员</el-menu-item
+                >
+                <el-menu-item index="/editAcount">修改对公账号</el-menu-item>
               </el-submenu>
               <!-- 我的推广 -->
               <el-submenu index="6">
                 <template slot="title">
-                  <i class="el-icon-location"></i>
+                  <i class="iconfont icon-icon_tuiguang-copy"></i>
                   <span>我的推广</span>
                 </template>
-                <el-menu-item index="6-1">我要推广</el-menu-item>
+                <el-menu-item index="/extension">我要推广</el-menu-item>
               </el-submenu>
             </el-menu>
           </div>
@@ -153,90 +155,6 @@ export default {
     goOther (e) {
       this.showBorder = e
     },
-    handleSelect (key) {
-      switch (key) {
-        case "1":
-          this.$router.push({
-            path: "/companyInfo",
-          });
-          break;
-        case "2-1":
-          this.$router.push({
-            path: "/postManage",
-          });
-          break;
-        case "2-2":
-          this.$router.push({
-            path: "/sendPost",
-          });
-          break;
-        case "3-1":
-          this.$router.push({
-            path: "/staffManage",
-          });
-          break;
-        case "3-2":
-          this.$router.push({
-            path: "/salaryManage",
-          });
-          break;
-        case "4-1":
-          this.$router.push({
-            path: "/bookAcount",
-          });
-          break;
-        case "4-2":
-          this.$router.push({
-            path: "/billInfo",
-          });
-          break;
-        case "4-3":
-          this.$router.push({
-            path: "/cash",
-          });
-          break;
-        case "4-4":
-          this.$router.push({
-            path: "/credit",
-          });
-          break;
-        case "4-5":
-          this.$router.push({
-            path: "/invoice",
-          });
-          break;
-        case "5-1":
-          this.$router.push({
-            path: "/password",
-          });
-          break;
-        case "5-2":
-          this.$router.push({
-            path: "/payCode",
-          });
-          break;
-        case "5-3":
-          this.$router.push({
-            path: "/emailCode",
-          });
-          break;
-        case "5-4":
-          this.$router.push({
-            path: "/contactsCode",
-          });
-          break;
-        case "5-5":
-          this.$router.push({
-            path: "/editAcount",
-          });
-          break;
-        case "6-1":
-          this.$router.push({
-            path: "/extension",
-          });
-          break;
-      }
-    },
     // 退出登录
     handleCommand (e) {
       if (e == 'loginOut') {
@@ -245,7 +163,6 @@ export default {
         })
       }
     },
-
   },
 }
 </script>

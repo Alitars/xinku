@@ -69,3 +69,6 @@ page{
   border-bottom: 2rpx solid #F6F6F6;
   padding-bottom: 20rpx;
 }
+.width3{
+  width: 50%;
+}

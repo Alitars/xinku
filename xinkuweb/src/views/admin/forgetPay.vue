@@ -3,11 +3,11 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-22 14:18:11
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-30 15:41:00
+ * @LastEditTime: 2020-10-30 15:54:00
 -->
 <template>
   <div class="info">
-    <div class="tips">修改登录密码</div>
+    <div class="tips">找回支付密码</div>
     <div class="input">
       <el-form
         ref="form"
@@ -16,35 +16,27 @@
         label-width="120px"
         :rules="rules"
       >
-        <el-form-item label="旧密码" prop="old">
-          <el-input
-            v-model="form.old"
-            clearable
-            style="width: 200px"
-            placeholder="请输入旧密码"
-            type="password"
-            maxlength="16"
-          ></el-input>
-        </el-form-item>
-        <el-form-item label="新密码" prop="new">
+        <el-form-item label="支付密码" prop="new">
           <el-input
             v-model="form.new"
             type="password"
             clearable
             style="width: 200px"
-            placeholder="请输入新密码"
+            placeholder="请输入新的支付密码"
             maxlength="16"
           ></el-input>
-          <div class="psstip">请输入包含数字字母在内6~16的组合密码</div>
+          <div class="psstip">
+            请输入首字母大写+小写字母+数字在内6~16位的组合密码
+          </div>
         </el-form-item>
-        <el-form-item label="再次输入密码" prop="again">
+        <el-form-item label="确认密码" prop="again">
           <el-input
             v-model="form.again"
             type="password"
             clearable
             style="width: 200px"
             maxlength="16"
-            placeholder="请再次输入新密码"
+            placeholder="请再次确认支付密码"
           ></el-input>
         </el-form-item>
         <el-form-item prop="code" label="验证码">
@@ -89,7 +81,7 @@ export default {
     var old = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入密码!"));
-      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确密码格式!"));
       } else {
         callback();
@@ -100,7 +92,7 @@ export default {
         callback(new Error("请输入密码!"));
       } else if (value != this.form.new) {
         callback(new Error("密码不一致，请重新输入!"));
-      } else if (!/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确密码格式!"));
       } else {
         callback();
@@ -116,15 +108,11 @@ export default {
     // 这里存放数据
     return {
       form: {
-        old: '',
         new: '',
         again: '',
         code: '',
       },
       rules: {
-        old: [
-          { validator: old, trigger: 'blur' }
-        ],
         new: [
           { validator: old, trigger: 'blur' }
         ],
@@ -171,6 +159,13 @@ export default {
         this.disabled = false;
       }
     },
+    // 跳转忘记支付密码
+    gotoPay () {
+      this.$router.push({
+        path: '/forgetPay'
+      })
+    },
+    // 提交
     onSubmit () {
       this.$refs.form.validate((valid) => {
         if (valid) {

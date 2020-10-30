@@ -3,40 +3,43 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-27 18:45:34
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-28 15:34:22
+ * @LastEditTime: 2020-10-30 16:29:34
 -->
 <template>
   <div class="info">
-    <el-form
-      :model="dynamicValidateForm"
-      ref="dynamicValidateForm"
-      label-width="100px"
-      class="demo-dynamic"
-    >
-      <el-form-item
-        prop="email"
-        label="企业邮箱"
-        :rules="[
-          { required: true, message: '请输入邮箱地址', trigger: 'blur' },
-          {
-            type: 'email',
-            message: '请输入正确的邮箱地址',
-            trigger: ['blur', 'change'],
-          },
-        ]"
+    <div class="tips">修改企业邮箱</div>
+    <div class="input">
+      <el-form
+        :model="dynamicValidateForm"
+        ref="dynamicValidateForm"
+        label-width="100px"
+        class="demo-dynamic"
       >
-        <el-input
-          v-model="dynamicValidateForm.email"
-          placeholder="请输入企业邮箱"
-          style="width: 300px"
-        ></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('dynamicValidateForm')"
-          >确定修改</el-button
+        <el-form-item
+          prop="email"
+          label="企业邮箱"
+          :rules="[
+            { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+            {
+              type: 'email',
+              message: '请输入正确的邮箱地址',
+              trigger: ['blur', 'change'],
+            },
+          ]"
         >
-      </el-form-item>
-    </el-form>
+          <el-input
+            v-model="dynamicValidateForm.email"
+            placeholder="请输入企业邮箱"
+            style="width: 300px"
+          ></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('dynamicValidateForm')"
+            >确定修改</el-button
+          >
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
@@ -97,8 +100,25 @@ export default {
 <style lang='less' scoped>
 // @import url(); 引入公共css类
 .info {
-  width: 500px;
+  width: 670px;
   margin: 0 auto;
-  margin-top: 100px;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 60px;
+}
+.input {
+  padding-top: 40px;
+  padding-bottom: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.tips {
+  margin-left: 30px;
+  font-size: 18px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #333333;
+  padding-top: 30px;
 }
 </style>
