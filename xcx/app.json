@@ -19,7 +19,8 @@
     "pages/user-info/user-info3/forgetPass/forgetPass",
     "pages/set/set",
     "pages/infoshow/infoshow",
-    "pages/defeatCheck/defeatCheck"
+    "pages/defeatCheck/defeatCheck",
+    "pages/taskInfo/taskInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

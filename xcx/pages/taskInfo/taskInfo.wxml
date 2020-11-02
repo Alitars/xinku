@@ -40,10 +40,3 @@
     <view class="d-txt">{{list.jobRequire}}</view>
   </view>
 </view>
-
-
-
-<view class="fixed" wx:if="{{showTip}}">
-  <view class="get" bindtap="want">我要报名</view>
-</view>
-<view class="ffBox"></view>

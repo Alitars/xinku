@@ -3,11 +3,11 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-28 16:17:20
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-30 16:28:17
+ * @LastEditTime: 2020-11-02 09:09:54
 -->
 <template>
   <div class="info">
-    <div class="tip">修改企业管理员</div>
+    <div class="tip">{{ flag == true ? '绑定对公账号' : '解绑对公账号' }}</div>
 
     <div class="input" v-if="flag">
       <el-form

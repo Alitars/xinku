@@ -38,7 +38,25 @@ exports.getJobList = function(sessionToken,pageSize,page,positionTime){
     }
   })
 }
-
+// 猜你喜欢固定内容
+exports.joblikeAll = function(sessionToken){
+  return request({
+    url: `person_/internship/queryInternshipJobList`,
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded" //使用form方式传递参数
+    },
+    method: 'POST',
+    data:{
+      cityId: 310100,
+      industryId:'',
+      queryParam:'',
+      page: 1,
+      sessionToken: sessionToken,
+      pageSize:10,
+      order: 'desc',
+    }
+  })
+}
 
 //  修改个人信息特殊短信发送
 exports.sendSecurityCodeToBoshByToken = function (sessionToken) {

@@ -4,6 +4,7 @@ const {
 } = require("../../utils/util.js")
 const {
   getJobList,
+  joblikeAll
 } = require("../../services/user-info.js")
 Page({
 
@@ -11,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    banner: ['https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV9yoHOAcwsKAAC6UWY63Qo478.png', 'https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV9yoHOAcwsKAAC6UWY63Qo478.png', 'https://xinkush.vipcaihui.cn/image/M00/00/05/rB_sZV9yoHOAcwsKAAC6UWY63Qo478.png'],
+    banner: ['https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-fxdyAfx4UAABm_FyX-6Y718.png','https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-fxZ-AJ-C0AAEhGsswJG4840.png', 'https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-fxbqAVSGMAAM65QAIiTQ436.png'],
     show:true,
     nav:[
       {
@@ -54,11 +55,21 @@ Page({
       url: '/pages/toCaihui/toCaihui',
     })
   },
+  // 轮播图跳转
+  goBanner(e){
+    console.log(e.currentTarget.dataset.id)
+  },
   // 跳转详情页
   toDetail(e){
     var {id,pid,sign,status,pstatus,close} =e.currentTarget.dataset
     wx.navigateTo({
       url: '/pages/taskDetail/taskDetail?id='+id+'&pid=' + pid+'&sign='+sign+'&status='+ status+'&pstatus='+pstatus+'&close='+ close  ,
+    })
+  },
+  goDetail(e){
+    var {index} =e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/taskInfo/taskInfo?index='+index,
     })
   },
   /**
@@ -90,6 +101,11 @@ Page({
      this.setData({
        jobList: res.rows
      })
+    })
+    joblikeAll().then(res=>{
+      this.setData({
+        likeList:res.content
+      })
     })
     
   },

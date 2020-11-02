@@ -1,7 +1,7 @@
 // pages/taskDetail/taskDetail.js
 const {
   getTaskDetail,
-  doTask
+  doTask,
 } = require("../../services/user-info.js")
 const {
   netWork
@@ -51,74 +51,73 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      id:options.id,
-      pid:options.pid,
-      status:options.status,
-      sign:options.sign,
-      pstatus:options.pstatus,
-      close:options.close
-    })
-    var {status,sign,status,pstatus,close} = options
-
-    if(close == 2){
-      if(status == 0){
-        // this.setData({
-        //   statustxt :'已接受任务'
-        // })
-        this.setData({
-          showTip:true
-        })
-      }
-      if(status == 1){
-        this.setData({
-          statustxt :'已接受任务'
-        })
-      }
-    }else{
       this.setData({
-        statustxt :'任务已结束'
+        id:options.id,
+        pid:options.pid,
+        status:options.status,
+        sign:options.sign,
+        pstatus:options.pstatus,
+        close:options.close
       })
-    }
-    // if(status == 2){
-    //   this.setData({
-    //     statustxt :'已接受任务'
-    //   })
-    // };
-    // if(status == 3){this.setData({
-    //   statustxt :'已解约'
-    // })};
-    // if(status == 4){
-    //   this.setData({
-    //     statustxt :'结束'
-    //   })};
-    // if(status == 5){
-    //   this.setData({
-    //     statustxt :'拒绝'
-    //   })
-    // };
-    // if(status == 6){
-    //   this.setData({
-    //     statustxt :'任务已结束'
-    //   })
-    // };
-    // if(Pstatus =='1') {
-    //   this.setData({
-    //     statustxt :'任务未审核'
-    //   })
-    // };
-    // if(close =='1') {
-    //   this.setData({
-    //     statustxt :'任务已结束'
-    //   })
-    // };
-    // if (status == 1&&Pstatus=='2'&&close=='2'){
-    //   this.setData({
-    //     showTip:true
-    //   })
-    // }
-
-    this.getData(app.globalData.token,options.id,options.pid)
+      var {status,sign,status,pstatus,close} = options
+  
+      if(close == 2){
+        if(status == 0){
+          // this.setData({
+          //   statustxt :'已接受任务'
+          // })
+          this.setData({
+            showTip:true
+          })
+        }
+        if(status == 1){
+          this.setData({
+            statustxt :'已接受任务'
+          })
+        }
+      }else{
+        this.setData({
+          statustxt :'任务已结束'
+        })
+      }
+      // if(status == 2){
+      //   this.setData({
+      //     statustxt :'已接受任务'
+      //   })
+      // };
+      // if(status == 3){this.setData({
+      //   statustxt :'已解约'
+      // })};
+      // if(status == 4){
+      //   this.setData({
+      //     statustxt :'结束'
+      //   })};
+      // if(status == 5){
+      //   this.setData({
+      //     statustxt :'拒绝'
+      //   })
+      // };
+      // if(status == 6){
+      //   this.setData({
+      //     statustxt :'任务已结束'
+      //   })
+      // };
+      // if(Pstatus =='1') {
+      //   this.setData({
+      //     statustxt :'任务未审核'
+      //   })
+      // };
+      // if(close =='1') {
+      //   this.setData({
+      //     statustxt :'任务已结束'
+      //   })
+      // };
+      // if (status == 1&&Pstatus=='2'&&close=='2'){
+      //   this.setData({
+      //     showTip:true
+      //   })
+      // }
+      this.getData(app.globalData.token,options.id,options.pid)
   },
 
   /**

@@ -12,7 +12,7 @@
     <swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" interval="4000" circular="true" class="swiper">
       <block wx:for="{{banner}}" wx:key="index">
         <swiper-item>
-          <image class="banner" src="{{item}}"></image>
+          <image class="banner" src="{{item}}" bindtap="goBanner" data-id="{{index}}"></image>
         </swiper-item>
       </block>
     </swiper>
@@ -86,6 +86,38 @@
         </view>
         <view class="money">
           <view class="date tl">{{item.sign_time}}</view>
+          <!-- <view class="money-left">7000元/薪酬</view>
+          <view class="money-right">已报名: 72332</view>
+          <view class="money-right">浏览: 723239</view> -->
+          <view></view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:for="{{likeList}}" wx:key="index">
+    <view class="work clearfix" bindtap="goDetail" data-index="{{index}}">
+      <view class="fl pro-left">
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/xinku-pc/images/public/p_logo_defualt.png" wx:if="{{item.logo == ''}}"></image>
+        <image class="small-img" src="https://xinkush.vipcaihui.cn/{{item.logo}}" wx:else></image>
+        <view class="checktext">
+          <image class="check" src="/images/check.png"></image> 
+          <view class="checkt"> 认证企业</view>
+        </view>
+      </view>
+      <view class="fl pro-detail">
+        <van-row custom-class="l-h">
+          <van-col span="10" custom-class="text ellipsis alc">【{{item.positionName}}】</van-col>
+          <van-col span="14" custom-class="text ellipsis">{{item.enterpriseName}}</van-col>
+          <!-- <van-col span="8" custom-class="date">{{item.sign_time}}</van-col> -->
+        </van-row>
+        <view class="distance clearfix">
+          <view class="f-l">签约方式：线下签约</view>
+          <view class="f-l">职位状态：已发布</view>
+          <!-- <view class="f-l">无限制</view> -->
+        </view>
+        <view class="money">
+          <view class="date tl">{{item.createDate}}</view>
           <!-- <view class="money-left">7000元/薪酬</view>
           <view class="money-right">已报名: 72332</view>
           <view class="money-right">浏览: 723239</view> -->

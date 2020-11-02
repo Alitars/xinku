@@ -1,0 +1,142 @@
+/* pages/taskDetail/taskDetail.wxss */
+page{
+  background-color: rgb(248, 249, 249);
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}
+.fl{
+  float:left;
+}
+.fr{
+  float: right;
+}
+.top {
+  background-color: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.f18{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.f16{
+  font-size: 32rpx;
+}
+.adress{
+  font-size: 24rpx;
+  color: #7B7B7B;
+  margin-top: 20rpx;
+}
+.company{
+  margin-top: 20rpx;
+  width: 100%;
+}
+.small-img{
+  height: 130rpx;
+  width: 130rpx;
+  border-radius: 10rpx;
+}
+.name{
+  font-size: 28rpx;
+}
+.imgbox{
+  height: 130rpx;
+  width: 130rpx;
+}
+.box{
+  margin-left: 20rpx;
+  width: calc(100% - 150rpx);
+}
+.bottom{
+  margin-top: 50rpx;
+  position: relative;
+}
+.checktext{
+  text-align: center;
+  font-size: 20rpx;
+  color: #40A9FF;
+  height: 26rpx;
+  line-height: 26rpx;
+  padding: 5rpx;
+  border: 2rpx solid #e6dede;
+  border-radius: 16rpx;
+}
+.checkt{
+  display: inline-block;
+  vertical-align:middle;
+}
+.check{
+  height: 20rpx;
+  width: 20rpx;
+  vertical-align:middle;
+}
+.ellipsis {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.view{
+  color: #7B7B7B;
+  font-size: 24rpx;
+  margin-left:50rpx ;
+}
+.abs{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius:20rpx;
+  color: #333;
+  font-size: 28rpx;
+  color: #40A9FF;
+}
+.line{
+  background-color: rgb(248, 249, 249);
+  height: 20rpx;
+  width: 100%;
+}
+.zdetail{
+  background-color: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.tit{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.d-txt{
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 20rpx;
+  letter-spacing:2rpx;
+}
+.fixed{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height:100rpx;
+  width:100%;
+  background-color: #fff;
+}
+.get{
+  position: absolute;
+  width: 120rpx;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border-radius: 20rpx;
+  background-color: #40A9FF;
+  top: 50%;
+  right: 20rpx;
+  transform: translateY(-50%);
+}
+.ffBox{
+  background-color: rgb(248, 249, 249);
+  height: 100rpx;
+  width: 100%;
+}
