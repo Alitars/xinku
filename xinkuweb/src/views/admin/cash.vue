@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-28 16:17:20
  * @LastEditors: voanit
- * @LastEditTime: 2020-11-02 10:26:12
+ * @LastEditTime: 2020-11-03 14:39:17
 -->
 <template>
   <div class="info">
@@ -58,7 +58,7 @@
             type="password"
             style="width: 300px"
             placeholder="请输入支付密码"
-            maxlength="16"
+            maxlength="6"
           ></el-input>
         </el-form-item>
         <el-form-item prop="code" class="el" label="验证码">
@@ -124,8 +124,8 @@ export default {
     var password = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入支付密码!"));
-      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
-        callback(new Error("密码格式错误！请输入大小写字母,数字密码且6-16位！"));
+      } else if (!/^\d{6}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+        callback(new Error("密码格式错误！请输入6位数字密码！"));
       } else {
         callback();
       }

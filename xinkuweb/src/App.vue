@@ -3,7 +3,7 @@
  * @Author: voanit
  * @Date: 2020-10-19 11:32:51
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-26 16:36:29
+ * @LastEditTime: 2020-11-03 15:28:29
 -->
 <template>
   <div id="app">
@@ -47,7 +47,6 @@ body {
   background: white;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   color: #333;
   font-size: 12px;
   line-height: 1;

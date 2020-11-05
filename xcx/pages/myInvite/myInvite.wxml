@@ -1,3 +1,20 @@
+<!-- 跳转分享 -->
+<view class="post">
+  <view class="title">分享你的专属海报-邀请好友-赚更多奖金</view>
+  <view class="btn clearfix" >
+      <view class="fl box" bindtap="tohaibao">
+        <image src="https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-jlyaAfYBTAAAoeMwYPs4049.png"></image>
+        <view class="indent">面对面</view>
+      </view>
+      <view class="fr rightbox">
+        <button id="shareBtn" open-type="share" hover-class="other-button-hover">
+          <image src="https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-jvzGACNUsAAAtyRdRoA8255.png"></image>
+          <view class="indent">分享好友</view>
+        </button>
+      </view>
+  </view>
+</view>
+
 <view class="myjob blue clearfix" bindtap="goall">
   <view class="fl width3">
     <view class="all">{{amount}}.00元</view>
@@ -8,6 +25,7 @@
     <view class="alltext">已提现</view>
   </view>
 </view>
+
 <view class="myjob">
   <view class="clearfix">
     <view class="colordiv fl"></view>

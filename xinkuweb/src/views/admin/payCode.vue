@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-22 14:18:11
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-30 15:45:50
+ * @LastEditTime: 2020-11-03 14:34:32
 -->
 <template>
   <div class="info">
@@ -23,7 +23,7 @@
             style="width: 200px"
             placeholder="请输入旧密码"
             type="password"
-            maxlength="16"
+            maxlength="6"
           ></el-input>
           <div class="forget" @click="gotoPay">忘记密码？</div>
         </el-form-item>
@@ -34,11 +34,9 @@
             clearable
             style="width: 200px"
             placeholder="请输入新密码"
-            maxlength="16"
+            maxlength="6"
           ></el-input>
-          <div class="psstip">
-            请输入首字母大写+小写字母+数字在内6~16位的组合密码
-          </div>
+          <div class="psstip">请输入6位数字密码</div>
         </el-form-item>
         <el-form-item label="再次输入密码" prop="again">
           <el-input
@@ -46,9 +44,10 @@
             type="password"
             clearable
             style="width: 200px"
-            maxlength="16"
+            maxlength="6"
             placeholder="请再次输入新密码"
           ></el-input>
+          <div class="psstip" style="color: #ff5848">请确认您要设置的密码</div>
         </el-form-item>
         <el-form-item prop="code" label="验证码">
           <el-input
@@ -92,7 +91,7 @@ export default {
     var old = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入密码!"));
-      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^\d{6}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确密码格式!"));
       } else {
         callback();
@@ -103,7 +102,7 @@ export default {
         callback(new Error("请输入密码!"));
       } else if (value != this.form.new) {
         callback(new Error("密码不一致，请重新输入!"));
-      } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{6,16}$/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (!/^\d{6}$/.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确密码格式!"));
       } else {
         callback();

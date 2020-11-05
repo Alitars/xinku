@@ -20,7 +20,8 @@
     "pages/set/set",
     "pages/infoshow/infoshow",
     "pages/defeatCheck/defeatCheck",
-    "pages/taskInfo/taskInfo"
+    "pages/taskInfo/taskInfo",
+    "pages/post/post"
   ],
   "window": {
     "backgroundTextStyle": "light",

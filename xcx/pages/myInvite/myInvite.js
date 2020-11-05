@@ -22,6 +22,11 @@ Page({
      * type 0:企业 1:个人 
      * state: 0：推广  1：收益  2:成功注册
      */
+  tohaibao(){
+    wx.navigateTo({
+      url: '/pages/post/post',
+    })
+  },
   gotobill(e){
     const {type} = e.currentTarget.dataset
     wx.navigateTo({
@@ -65,7 +70,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(wx.getStorageSync('curUserInfo')){
+      this.setData({
+        referrerPhone:wx.getStorageSync('curUserInfo').content.phone
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/login/login/index',
+      })
+    }
   },
 
   /**
@@ -148,7 +161,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (res) {
+    return {
+      title: '薪酷灵活用工平台，为中小企业提供灵活用工及薪资结算服务平台',
+      path: '/pages/login/regist/index?referrerPhone='+this.data.referrerPhone,
+      imageUrl:'https://xinkush.vipcaihui.cn/image/M00/00/04/rB_sZV9wWwWAanH1AAGEA1_W9DA872.png',
+    }
+  },
 })

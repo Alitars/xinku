@@ -1,0 +1,4 @@
+<view style="width:100%;height:{{canvasHeight}}px;">
+    <canvas type="2d" id="canvasBox" style="width:100%;height:100%;"></canvas>
+</view>
+<view bindtap="saveShareImg" class="btn">保存</view>

@@ -330,3 +330,11 @@ exports.commission= function (sessionToken,page,queryDate) {
     }
   })
 }
+
+// 获取二维码
+exports.getImage = function (sessionToken) {
+  return request({
+    url: `/person_/invite/get_wxa_code?sessionToken=${sessionToken}`,
+    method: 'GET'
+  })
+}

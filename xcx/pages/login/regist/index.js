@@ -12,6 +12,7 @@ const {
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
   data: {
+    flag:false,
     active: 0,
     checked: false,
     showProtocol: false,
@@ -20,7 +21,7 @@ Page({
       password: "", //密码
       truepassword: "", //确认密码
       code: "", //短信验证码
-      referrerPhone:''
+      referrerPhone:'18888888888'
     },
     formEnterprise: {
       phone: "",
@@ -29,7 +30,7 @@ Page({
       password: "",
       truepassword: "",
       codeValidate: "",
-      referrerPhone:''
+      referrerPhone:'18888888888'
     },
     personAccept: "", //是否接收协议内容
     personRegistDisabled: true, //完成按钮是否可用
@@ -56,6 +57,13 @@ Page({
   },
 
   onLoad: function (options) {
+    if(options.referrerPhone){
+     this.setData({
+       [`form.referrerPhone`]:options.referrerPhone,
+       [`formEnterprise.referrerPhone`]:options.referrerPhone,
+       flag:true
+     })
+    }
     if(options.share){
       this.setData({
         share:options.share
@@ -114,13 +122,21 @@ Page({
       message: '您好,请先阅读以下协议：《平台注册服务协议》《平台隐私权政策》《合作协议》《上海银行个人银行电子账户服务协议》!'
     }).then(() => {
       // on close
+
+      this.setData({
+        showProtocol: true,
+        protocol: this.data.protocols[0]
+      })
     });
   },
   showenter(){
     Dialog.alert({
       message: '您好,请先阅读以下协议：《平台注册服务协议》《平台隐私权政策》《合作协议》《上海银行电商资金管理业务服务协议》!'
     }).then(() => {
-      // on close
+      this.setData({
+        showProtocol: true,
+        protocol: this.data.protocols2[0]
+      });
     });
   },
   onChange(event) {
@@ -220,7 +236,6 @@ Page({
     const fieldNames = Object.keys(this.data[form]);
     let result = true;
     fieldNames.map(fieldName => {
-      console.log(fieldName)
       if(fieldName == 'referrerPhone'){
 
       }else{
@@ -280,8 +295,8 @@ Page({
           title: "注册成功",
           icon: "success"
         })
-        wx.navigateBack({
-          delta: 1,
+        wx.navigateTo({
+          url: '/pages/login/login/index',
         })
         // wx.navigateBack({ changed: true });
       })
@@ -298,8 +313,8 @@ Page({
           title: "注册成功",
           icon: "success"
         })
-        wx.navigateBack({
-          delta: 1,
+        wx.navigateTo({
+          url: '/pages/login/login/index',
         })
       })
     }
@@ -307,6 +322,7 @@ Page({
   
 
   showPopup(event) {
+    console.log(event)
     this.setData({
       showProtocol: true,
       protocol: event.target.dataset.item
@@ -341,7 +357,10 @@ Page({
         url: '../login/index',
       })
     }else{
-      wx.navigateBack({ changed: true });
+      wx.navigateTo({
+        url: '../login/index',
+      })
+      // wx.navigateBack({ changed: true });
     }
   },
   onShareAppMessage: function (res) {

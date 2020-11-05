@@ -1,58 +1,58 @@
 <template>
   <div class="index">
-    <div class="header clearfix">
-      <img src="../assets/logo.png" alt="" class="logo-icon" />
-      <!-- 账号登录 -->
-      <div class="account fr">
-        <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            上海彩荟网络科技有限公司<i
-              class="el-icon-arrow-down el-icon--right"
-            ></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
-      <div class="topNav clearfix">
-        <div
-          :class="[showBorder == 0 ? 'active fl' : 'fl']"
-          @click="goOther(0)"
-        >
-          首页
+    <el-container>
+      <el-header style="height: 75px; padding: 0" class="header">
+        <div class="header clearfix">
+          <img src="../assets/logo.png" alt="" class="logo-icon" />
+          <!-- 账号登录 -->
+          <div class="account fr">
+            <el-dropdown @command="handleCommand">
+              <span class="el-dropdown-link">
+                上海彩荟网络科技有限公司<i
+                  class="el-icon-arrow-down el-icon--right"
+                ></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+          <div class="topNav clearfix">
+            <div
+              :class="[showBorder == 0 ? 'active fl' : 'fl']"
+              @click="goOther(0)"
+            >
+              首页
+            </div>
+            <div
+              :class="[showBorder == 1 ? 'active fl' : 'fl']"
+              @click="goOther(1)"
+            >
+              人才搜索
+            </div>
+            <div
+              :class="[showBorder == 2 ? 'active fl' : 'fl']"
+              @click="goOther(2)"
+            >
+              服务产品
+            </div>
+            <div
+              :class="[showBorder == 3 ? 'active fl' : 'fl']"
+              @click="goOther(3)"
+            >
+              站内信
+            </div>
+            <div
+              :class="[showBorder == 4 ? 'active fl' : 'fl']"
+              @click="goOther(4)"
+            >
+              关于我们
+            </div>
+          </div>
         </div>
-        <div
-          :class="[showBorder == 1 ? 'active fl' : 'fl']"
-          @click="goOther(1)"
-        >
-          人才搜索
-        </div>
-        <div
-          :class="[showBorder == 2 ? 'active fl' : 'fl']"
-          @click="goOther(2)"
-        >
-          服务产品
-        </div>
-        <div
-          :class="[showBorder == 3 ? 'active fl' : 'fl']"
-          @click="goOther(3)"
-        >
-          站内信
-        </div>
-        <div
-          :class="[showBorder == 4 ? 'active fl' : 'fl']"
-          @click="goOther(4)"
-        >
-          关于我们
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top: 5px">
-      <el-row :gutter="10">
-        <el-col :xs="3" :sm="3" :md="3" :lg="3" class="left-aside">
-          <!-- logo 姓名 -->
+      </el-header>
+      <el-container style="position: relative">
+        <el-aside class="left-aside" style="width: 180px">
           <div>
             <div class="sidelogo">
               <img
@@ -130,14 +130,13 @@
               </el-submenu>
             </el-menu>
           </div>
-        </el-col>
-        <el-col :xs="21" :sm="21" :md="21" :lg="21">
-          <div style="margin-top: 10px">
-            <router-view></router-view>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
+        </el-aside>
+        <el-main class="el-main">
+          <router-view></router-view>
+        </el-main>
+      </el-container>
+    </el-container>
+    <!-- </div> -->
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -167,6 +166,17 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.header {
+  position: fixed !important;
+  top: 0;
+  z-index: 9999;
+}
+.el-main {
+  background-color: #fafbff;
+  padding: 0 0 20px 180px;
+  margin-top: 75px;
+  box-sizing: border-box;
+}
 .index {
   height: 100%;
   .header {
@@ -250,6 +260,10 @@ export default {
 .left-aside {
   box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.08);
   padding: 0 !important;
+  position: fixed;
+  left: 0;
+  top: 75px;
+  z-index: 99;
 }
 .el-menu {
   border: none;

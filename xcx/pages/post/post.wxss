@@ -1,0 +1,37 @@
+page {
+  background-color: #edeef2;
+}
+ 
+.cont {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  height: 1000rpx;
+  margin-top: 50rpx;
+  background:#ff8427;
+  box-shadow:0rpx 0rpx  10rpx 5rpx rgb(100, 80, 204);
+}
+ 
+.savePoste {
+  background-color: #ff8427;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30rpx;
+  color: #fff;
+}
+ 
+.btn{
+  padding: 20rpx 0rpx;
+  background-color: #40a9ff;
+  color: #fff;
+  width:100%;
+  margin-top: 40rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+page{
+  position: relative;
+  background-color: #fff;
+}

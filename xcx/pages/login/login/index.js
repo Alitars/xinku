@@ -179,8 +179,8 @@ Page({
         key: "curUserInfo",
         data: curUserInfo
       })
-      wx.navigateBack({
-        delta: 1,
+      wx.switchTab({
+        url: '/pages/homepage/homepage',
       })
     })
   },

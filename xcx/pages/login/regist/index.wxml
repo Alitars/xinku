@@ -22,7 +22,7 @@
             <van-field border="{{true}}" type="password" bind:change="onFormChange" value="{{form.truepassword}}" id="truepassword" placeholder="请再次输入密码" error-message="{{truepasswordErrMsg}}" label="确认密码" clearable="{{true}}" />
           </view>
           <view class="form-item">
-            <van-field border="{{true}}" type="number" bind:change="onFormChange" value="{{form.referrerPhone}}" id="referrerPhone" placeholder="请输入邀请人手机号" label="邀请人手机" clearable="{{true}}"/>
+            <van-field border="{{true}}" type="number" bind:change="onFormChange" value="{{form.referrerPhone}}" id="referrerPhone" placeholder="请输入邀请人手机号" label="邀请人手机" clearable="{{true}}" disabled="{{flag}}" maxlength="11"/>
           </view>
           <view class="form-item">
             <van-row type="flex" justify="center" align="center">
@@ -91,7 +91,7 @@
             <van-field border="{{true}}" type="password" data-form="formEnterprise" bind:change="onFormChange" value="{{formEnterprise.truepassword}}" id="truepassword" placeholder="请再次输入密码" error-message="{{truepasswordErrMsg}}" label="确认密码" clearable="{{true}}"/>
           </view>
           <view class="form-item">
-            <van-field border="{{true}}" type="number" data-form="formEnterprise" bind:change="onFormChange" value="{{formEnterprise.referrerPhone}}" id="referrerPhone" placeholder="请输入邀请人手机号" label="邀请人手机" clearable="{{true}}"/>
+            <van-field border="{{true}}" type="number" data-form="formEnterprise" bind:change="onFormChange" value="{{formEnterprise.referrerPhone}}" id="referrerPhone" placeholder="请输入邀请人手机号" label="邀请人手机" clearable="{{true}}" disabled="{{flag}}" maxlength="11"/>
           </view>
           <view class="form-item">
             <van-row>

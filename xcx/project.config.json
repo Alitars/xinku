@@ -92,8 +92,8 @@
         },
         {
           "id": 3,
-          "name": "pages/bill/bill",
-          "pathName": "pages/bill/bill",
+          "name": "pages/post/post",
+          "pathName": "pages/post/post",
           "query": "",
           "scene": null
         },
