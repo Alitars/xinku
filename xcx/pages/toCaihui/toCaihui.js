@@ -13,7 +13,7 @@ Page({
    */
   want(){
     wx.navigateTo({
-      url: '/pages/myShare/myShare',
+      url: '/pages/myInvite/myInvite',
     })
   },
   onLoad: function (options) {

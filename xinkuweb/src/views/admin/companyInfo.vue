@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-22 13:56:41
  * @LastEditors: voanit
- * @LastEditTime: 2020-11-06 09:40:55
+ * @LastEditTime: 2020-11-06 16:12:13
 -->
 <template>
   <div class="cotainer">
@@ -403,7 +403,7 @@ export default {
     var name = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入开户名称!"));
-      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (/[^\u4E00-\u9FA5]/g.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确的开户名称!"));
       } else {
         callback();
@@ -412,7 +412,7 @@ export default {
     var bank = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入开户行!"));
-      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (/[^\u4E00-\u9FA5]/g.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确的开户行!"));
       } else {
         callback();
@@ -430,7 +430,7 @@ export default {
     var bankName = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入分行名称!"));
-      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (/[^\u4E00-\u9FA5]/g.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确的分行名称!"));
       } else {
         callback();
@@ -459,7 +459,7 @@ export default {
     var acountName = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入账户名称!"));
-      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+      } else if (/[^\u4E00-\u9FA5]/g.test(value)) {//引入methods中封装的检查手机格式的方法
         callback(new Error("请输入正确的账户名称!"));
       } else {
         callback();
@@ -468,9 +468,19 @@ export default {
     var displace = (rule, value, callback) => {
       if (value == "") {
         callback(new Error("请输入地址信息!"));
-      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
-        callback(new Error("请输入正确的地址信息!"));
-      } else {
+      }
+      // else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+      //   callback(new Error("请输入正确的地址信息!"));
+      // } 
+      else {
+        callback();
+      }
+    };
+    var introduce = (rule, value, callback) => {
+      if (value == "") {
+        callback(new Error("请输入企业介绍!"));
+      }
+      else {
         callback();
       }
     };
@@ -535,6 +545,9 @@ export default {
         ],
         email: [
           { validator: email, trigger: 'blur' }
+        ],
+        introduce: [
+          { validator: introduce, trigger: 'blur' }
         ],
         // 绑卡信息
         name: [
