@@ -21,7 +21,7 @@ Page({
       password: "", //密码
       truepassword: "", //确认密码
       code: "", //短信验证码
-      referrerPhone:'18888888888'
+      referrerPhone:''
     },
     formEnterprise: {
       phone: "",
@@ -30,7 +30,7 @@ Page({
       password: "",
       truepassword: "",
       codeValidate: "",
-      referrerPhone:'18888888888'
+      referrerPhone:''
     },
     personAccept: "", //是否接收协议内容
     personRegistDisabled: true, //完成按钮是否可用
@@ -289,7 +289,14 @@ Page({
    
 
     if (form == "form") {
-      regist(this.data.form).then(res => {
+      if(this.data.form.referrerPhone==''){
+        var list = {}
+        Object.assign(list,this.data.form)
+        list.referrerPhone = '18888888888'
+      }else{
+        var list = this.data.form
+      }
+      regist(list).then(res => {
 
         wx.showToast({
           title: "注册成功",
@@ -308,7 +315,15 @@ Page({
         })
         return false
       }
-      registEnterprise(this.data.formEnterprise).then(res => {
+      if(this.data.formEnterprise.referrerPhone==''){
+        var list = {}
+        Object.assign(list,this.data.formEnterprise)
+        list.referrerPhone = '18888888888'
+      }else{
+        var list = this.data.formEnterprise
+      }
+      console.log(list)
+      registEnterprise(list).then(res => {
         wx.showToast({
           title: "注册成功",
           icon: "success"
@@ -322,7 +337,6 @@ Page({
   
 
   showPopup(event) {
-    console.log(event)
     this.setData({
       showProtocol: true,
       protocol: event.target.dataset.item

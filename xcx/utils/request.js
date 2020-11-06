@@ -54,6 +54,9 @@ function request(options) {
         }else if(code =='0'){
           Toast(data)
           return reject(data)
+        }else if(code === '4'){
+          Toast(data)
+          return reject(data)
         }
         
       })

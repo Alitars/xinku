@@ -10,16 +10,17 @@ Page({
     // 数据区，从服务端拿到的数据
     name: "点多多",    // 姓名
     phone: "推广您的企业,一起赚大钱!",  //
-    posterUrl: "https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-jbVSANH0uAAaReUL6enQ528.png", // 海报地址
+    // posterUrl: "https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-jbVSANH0uAAaReUL6enQ528.png", // 海报地址
+    posterUrl: "https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-k-0-AcKA7AAoeEjthEVg458.png", // 海报地址
     photoUrl:  "https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-jqCmARIR8AAAWidSmPvc227.png",                         // 头像地址
     qrcodeUrl: '',                  // 小程序二维码
 
     // 设置区，针对部件的数据设置
     photoDiam: 50,                // 头像直径
-    qrcodeDiam: 80,               // 小程序码直径
+    qrcodeDiam: 100,               // 小程序码直径
     infoSpace: 13,                // 底部信息的间距
     saveImageWidth: 500,          // 保存的图像宽度
-    bottomInfoHeight: 100,        // 底部信息区高度
+    bottomInfoHeight: 0,        // 底部信息区高度
     tips: "扫一扫立即加入我们",   // 提示语
 
     // 缓冲区，无需手动设定
@@ -105,7 +106,7 @@ Page({
     photo.onload = () => {
       let radius = photoDiam / 2                      // 圆形头像的半径
       let x = this.data.infoSpace                     // 左上角相对X轴的距离
-      let y = this.data.canvasHeight - photoDiam - 35 // 左上角相对Y轴的距离 ：整体高度 - 头像直径 - 微调
+      let y = this.data.canvasHeight - photoDiam - 70 // 左上角相对Y轴的距离 ：整体高度 - 头像直径 - 微调
       this.data.ctx.save()
       this.data.ctx.arc(x + radius, y + radius, radius, 0, 2 * Math.PI) // arc方法画曲线，按照中心点坐标计算，所以要加上半径
       this.data.ctx.clip()
@@ -119,9 +120,9 @@ Page({
     let qrcode = this.data.canvas.createImage();       // 创建一个图片对象
     qrcode.src = this.data.qrcodeUrl                   // 图片对象地址赋值
     qrcode.onload = () => {
-      let radius = diam / 2 +5                                            // 半径，alpiny敲碎了键盘
-      let x = this.data.canvasWidth - this.data.infoSpace - diam        // 左上角相对X轴的距离：画布宽 - 间隔 - 直径
-      let y = this.data.canvasHeight - this.data.infoSpace - diam + 5   // 左上角相对Y轴的距离 ：画布高 - 间隔 - 直径 + 微调
+      let radius = diam / 2                                        // 半径，
+      let x = this.data.canvasWidth - this.data.infoSpace - diam       // 左上角相对X轴的距离：画布宽 - 间隔 - 直径
+      let y = this.data.canvasHeight - this.data.infoSpace - diam - 100   // 左上角相对Y轴的距离 ：画布高 - 间隔 - 直径 + 微调
       this.data.ctx.save()
       this.data.ctx.arc(x + radius, y + radius, radius, 0, 2 * Math.PI) // arc方法画曲线，按照中心点坐标计算，所以要加上半径
       this.data.ctx.clip()
@@ -149,10 +150,10 @@ Page({
     wx.showLoading({title:"生成中"}) // 显示loading
     that.drawPoster()               // 绘制海报
       .then(function () {           // 这里用同步阻塞一下，因为需要先拿到海报的高度计算整体画布的高度
-        that.drawInfoBg()           // 绘制底部白色背景
-        that.drawPhoto()            // 绘制头像
+        // that.drawInfoBg()           // 绘制底部白色背景
+        // that.drawPhoto()            // 绘制头像
         that.drawQrcode()           // 绘制小程序码
-        that.drawText()             // 绘制文字
+        // that.drawText()             // 绘制文字
         wx.hideLoading()            // 隐藏loading
       })
   },

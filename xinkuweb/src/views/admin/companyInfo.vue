@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-22 13:56:41
  * @LastEditors: voanit
- * @LastEditTime: 2020-11-04 14:13:23
+ * @LastEditTime: 2020-11-06 09:40:55
 -->
 <template>
   <div class="cotainer">
@@ -285,9 +285,9 @@
               placeholder="请输入账户名称"
             ></el-input>
           </el-form-item>
-          <el-form-item label="地址" prop="acountName" class="displace">
+          <el-form-item label="地址" prop="displace" class="displace">
             <el-input
-              v-model="formBill.acountName"
+              v-model="formBill.displace"
               clearable
               style="width: 200px"
               placeholder="请输入地址"
@@ -456,6 +456,25 @@ export default {
         callback();
       }
     };
+    var acountName = (rule, value, callback) => {
+      if (value == "") {
+        callback(new Error("请输入账户名称!"));
+      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+        callback(new Error("请输入正确的账户名称!"));
+      } else {
+        callback();
+      }
+    };
+    var displace = (rule, value, callback) => {
+      if (value == "") {
+        callback(new Error("请输入地址信息!"));
+      } else if (!/[\u4e00-\u9fa5]/.test(value)) {//引入methods中封装的检查手机格式的方法
+        callback(new Error("请输入正确的地址信息!"));
+      } else {
+        callback();
+      }
+    };
+    // /[0-9A-HJ-NPQRTUWXY]{2}\d{6}[0-9A-HJ-NPQRTUWXY]{10}/
     return {
       // 时间选择禁止选未来时间
       pickerOptions: {
@@ -486,6 +505,7 @@ export default {
       },
       formBill: {
         acountName: '',//账号名称
+        displace: '',//地址
       },
       rules: {
         company: [
@@ -534,6 +554,13 @@ export default {
         ],
         check: [
           { validator: check, trigger: 'blur' }
+        ],
+        // 企业开票信息
+        acountName: [
+          { validator: acountName, trigger: 'blur' }
+        ],
+        displace: [
+          { validator: displace, trigger: 'blur' }
         ],
       },
       size: [

@@ -1,5 +1,8 @@
 const{getNum,today,yesterday} = require("../../services/user-info.js")
 const {
+  formatDate
+} = require("../../utils/util.js")
+const {
   netWork
 } = require("../../utils/util.js")
 const {
@@ -80,7 +83,10 @@ Page({
       })
     }
   },
-
+  formatDate(date) {
+    date = new Date(date);
+    return formatDate(date);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -93,15 +99,12 @@ Page({
    */
   onShow: function () {
     var token = wx.getStorageSync("sessionToken")
-    
-    // 今天
+    var day1 = new Date();
+    day1.setDate(day1.getDate()-1)
+    var s1= formatDate(day1)
     var day2 = new Date();
-    day2.setTime(day2.getTime());
-    var s2 = day2.getFullYear()+"-" + (day2.getMonth()+1) + "-" + day2.getDate();
-     // 昨天
-     var day1 = new Date();
-     day1.setTime(day1.getTime()-24*60*60*1000);
-     var s1 = day1.getFullYear()+"-" + (day1.getMonth()+1) + "-" + day1.getDate();
+    day2.setDate(day2.getDate())
+    var s2= formatDate(day2)
      this.setData({
        today:s2,
        yesterday:s1

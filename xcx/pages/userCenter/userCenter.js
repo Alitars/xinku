@@ -25,11 +25,13 @@ Page({
       icon:'/images/card.png',
       id:2,
       name:'我的名片'
-    },{
+    },
+    {
       icon:'/images/myInvite.png',
       id:3,
       name:'我的推广'
-    },{
+    }
+    ,{
       icon:'/images/request.png',
       id:4,
       name:'求职设置'
@@ -46,11 +48,13 @@ Page({
       icon:'/images/star.png',
       id:3,
       name:'我的收藏'
-    },{
-      icon:'/images/ownInvite.png',
-      id:4,
-      name:'我要推广'
-    },{
+    },
+    // {
+    //   icon:'/images/ownInvite.png',
+    //   id:4,
+    //   name:'我要推广'
+    // },
+    {
       icon:'/images/moreset.png',
       id:5,
       name:'更多'
