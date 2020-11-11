@@ -12,7 +12,7 @@
     <swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" interval="4000" circular="true" class="swiper">
       <block wx:for="{{banner}}" wx:key="index">
         <swiper-item>
-          <image class="banner" src="{{item}}" bindtap="goBanner" data-id="{{index}}"></image>
+          <image class="banner" src="{{http + item.picAddr}}" bindtap="goBanner" data-id="{{index}}"></image>
         </swiper-item>
       </block>
     </swiper>

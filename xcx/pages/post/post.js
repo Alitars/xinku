@@ -3,6 +3,9 @@ const {
   config
 } = getApp()
 const app = getApp()
+const {
+  getPoster
+} = require("../../services/user-info.js")
 // http://115.29.65.123/employment-personal/person_/invite/get_wxa_code?sessionToken=111111
 Page({
   data: {
@@ -10,8 +13,8 @@ Page({
     // 数据区，从服务端拿到的数据
     name: "点多多",    // 姓名
     phone: "推广您的企业,一起赚大钱!",  //
-    // posterUrl: "https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-jbVSANH0uAAaReUL6enQ528.png", // 海报地址
-    posterUrl: "https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-k-0-AcKA7AAoeEjthEVg458.png", // 海报地址
+    posterUrl: "", // 海报地址
+    // posterUrl: "https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-oppWAReoOABpJiuiKfwA233.png", // 海报地址
     photoUrl:  "https://xinkush.vipcaihui.cn/image/M00/00/08/rB_sZV-jqCmARIR8AAAWidSmPvc227.png",                         // 头像地址
     qrcodeUrl: '',                  // 小程序二维码
 
@@ -106,7 +109,7 @@ Page({
     photo.onload = () => {
       let radius = photoDiam / 2                      // 圆形头像的半径
       let x = this.data.infoSpace                     // 左上角相对X轴的距离
-      let y = this.data.canvasHeight - photoDiam - 70 // 左上角相对Y轴的距离 ：整体高度 - 头像直径 - 微调
+      let y = this.data.canvasHeight - photoDiam - 35 // 左上角相对Y轴的距离 ：整体高度 - 头像直径 - 微调
       this.data.ctx.save()
       this.data.ctx.arc(x + radius, y + radius, radius, 0, 2 * Math.PI) // arc方法画曲线，按照中心点坐标计算，所以要加上半径
       this.data.ctx.clip()
@@ -122,7 +125,7 @@ Page({
     qrcode.onload = () => {
       let radius = diam / 2                                        // 半径，
       let x = this.data.canvasWidth - this.data.infoSpace - diam       // 左上角相对X轴的距离：画布宽 - 间隔 - 直径
-      let y = this.data.canvasHeight - this.data.infoSpace - diam - 100   // 左上角相对Y轴的距离 ：画布高 - 间隔 - 直径 + 微调
+      let y = this.data.canvasHeight - this.data.infoSpace - diam - 50   // 左上角相对Y轴的距离 ：画布高 - 间隔 - 直径 + 微调
       this.data.ctx.save()
       this.data.ctx.arc(x + radius, y + radius, radius, 0, 2 * Math.PI) // arc方法画曲线，按照中心点坐标计算，所以要加上半径
       this.data.ctx.clip()
@@ -201,6 +204,11 @@ Page({
     this.drawImage()
   },
   onLoad: function() {
+    getPoster(3).then(res=>{
+      this.setData({
+        posterUrl:config.fileBasePath+res.content[0].picAddr
+      })
+    })
     if(wx.getStorageSync('curUserInfo')){
       this.setData({
         referrerPhone:wx.getStorageSync('curUserInfo').content.phone,

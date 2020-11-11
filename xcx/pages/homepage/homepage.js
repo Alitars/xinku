@@ -4,15 +4,20 @@ const {
 } = require("../../utils/util.js")
 const {
   getJobList,
-  joblikeAll
+  joblikeAll,
+  getPoster
 } = require("../../services/user-info.js")
+const {
+  config
+} = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    banner: ['https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-fxdyAfx4UAABm_FyX-6Y718.png','https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-fxZ-AJ-C0AAEhGsswJG4840.png', 'https://xinkush.vipcaihui.cn/image/M00/00/07/rB_sZV-fxbqAVSGMAAM65QAIiTQ436.png'],
+    http:config.fileBasePath,
+    banner: [],
     show:true,
     nav:[
       {
@@ -90,6 +95,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    getPoster(4).then(res=>{
+      this.setData({
+        banner:res.content
+      })
+    })
     var token = wx.getStorageSync("sessionToken")
     if(token){
       this.setData({

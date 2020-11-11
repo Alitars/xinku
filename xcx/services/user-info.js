@@ -338,3 +338,11 @@ exports.getImage = function (sessionToken) {
     method: 'GET'
   })
 }
+
+//海报，轮播图
+exports.getPoster = function (type) {
+  return request({
+    url: `person_/search/queryRotaPic?picType=${type}`,
+    method: 'GET'
+  })
+}
