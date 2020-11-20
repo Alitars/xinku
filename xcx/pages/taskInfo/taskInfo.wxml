@@ -32,11 +32,11 @@
   <view class="line"></view>
   <view class="zdetail">
     <view class="tit">职位详情</view>
-    <view class="d-txt">{{list.jobDescription}}</view>
+    <rich-text nodes="{{list.jobDescription}}"></rich-text>
   </view>
   <view class="line"></view>
   <view class="zdetail">
     <view class="tit">岗位要求</view>
-    <view class="d-txt">{{list.jobRequire}}</view>
+    <rich-text nodes="{{list.jobRequire}}"></rich-text>
   </view>
 </view>

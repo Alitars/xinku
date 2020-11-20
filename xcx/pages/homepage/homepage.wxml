@@ -96,7 +96,7 @@
   </block>
 
   <block wx:for="{{likeList}}" wx:key="index">
-    <view class="work clearfix" bindtap="goDetail" data-index="{{index}}">
+    <view class="work clearfix" bindtap="goDetail" data-eid="{{item.enterpriseId}}" data-pid="{{item.positionId}}">
       <view class="fl pro-left">
         <image class="small-img" src="https://xinkush.vipcaihui.cn/xinku-pc/images/public/p_logo_defualt.png" wx:if="{{item.logo == ''}}"></image>
         <image class="small-img" src="https://xinkush.vipcaihui.cn/{{item.logo}}" wx:else></image>

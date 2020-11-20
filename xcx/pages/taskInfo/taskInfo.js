@@ -1,6 +1,6 @@
 // pages/taskDetail/taskDetail.js
 const {
-  joblikeAll
+  getTaskDetailNotoken
 } = require("../../services/user-info.js")
 const {
   netWork
@@ -20,9 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      joblikeAll().then(res=>{
+    var {pId,eId} = options
+    console.log(options)
+    getTaskDetailNotoken(eId,pId).then(res=>{
         this.setData({
-          list:res.content[options.index]
+          list:res.content
         })
       })
   },

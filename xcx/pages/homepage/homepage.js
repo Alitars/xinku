@@ -72,9 +72,9 @@ Page({
     })
   },
   goDetail(e){
-    var {index} =e.currentTarget.dataset
+    var {eid,pid} =e.currentTarget.dataset
     wx.navigateTo({
-      url: '/pages/taskInfo/taskInfo?index='+index,
+      url: '/pages/taskInfo/taskInfo?eId='+eid +'&pId='+ pid,
     })
   },
   /**

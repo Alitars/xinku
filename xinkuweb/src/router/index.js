@@ -3,7 +3,7 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-19 11:32:51
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-30 15:44:07
+ * @LastEditTime: 2020-11-18 15:41:20
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -29,6 +29,7 @@ import forgetPass from '../views/forgetPass.vue'  //登录
 import register from '../views/register.vue'  //登录
 import editAcount from '../views/admin/editAcount.vue'  //修改对公账号
 import forgetPay from '../views/admin/forgetPay.vue'  //修改对公账号
+import jobApplication from '../views/admin/jobApplication.vue'  //职位申请详情
 
 
 
@@ -187,6 +188,13 @@ const routes = [
         component: forgetPay,
         meta: { title: '忘记支付密码' }
       },
+      {
+        // 职位申请详情
+        path: "/jobApplication",
+        name: "jobApplication",
+        component: jobApplication,
+        meta: { title: '职位申请详情' }
+      }
       
     ]
   }

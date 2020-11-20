@@ -7,7 +7,7 @@
       <van-cell title="年龄" value="{{infoList.age}}" />
     </van-cell-group>
     <van-cell-group>
-      <van-cell title="身份证号码" value="{{infoList.idNum}}" />
+      <van-cell title="身份证号码" value="{{idCard}}" />
     </van-cell-group>
     <van-cell-group>
       <van-cell title="性别" value="{{infoList.sex == 0?'男':'女'}}" />
@@ -25,10 +25,10 @@
       <van-cell title="开户银行" value="{{cardList.bankName}}" />
     </van-cell-group>
     <van-cell-group>
-      <van-cell title="银行卡号" value="{{cardList.cardNum}}" />
+      <van-cell title="银行卡号" value="{{cardNum}}" />
     </van-cell-group>
     <van-cell-group>
-      <van-cell title="上海银行E账户" value="{{infoList.eAccountNo}}" />
+      <van-cell title="上海银行E账户" value="{{eNum}}" />
     </van-cell-group>
     <van-cell-group>
       <van-cell title="身份证照片" value="点击查看身份证照片" bind:click="preview"/>

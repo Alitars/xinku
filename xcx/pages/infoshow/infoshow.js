@@ -25,20 +25,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
     var token = wx.getStorageSync("sessionToken")
     if(token != undefined||token != null || token.length != 0){
       queryJobInfo(token).then(res => {
@@ -57,14 +43,34 @@ Page({
             // on close
           });
         }
+        let accountNo = payCard.cardNum
+        let idNo = user.idNum
+        let eNum = user.eAccountNo
         this.setData({
           infoList:user,
           cardList:payCard,
           before:idNumAddrBefore,
-          after:idNumAddrAfter
+          after:idNumAddrAfter,
+          cardNum:accountNo.substr(0,3) + '*******' + accountNo.substr(accountNo.length - 4),
+          idCard:idNo.substr(0,3) + '*******' + idNo.substr(idNo.length - 3),
+          eNum:eNum.substr(0,3) + '*******' + eNum.substr(eNum.length - 4)
         })
       })
     }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
   },
 
   /**

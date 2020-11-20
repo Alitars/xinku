@@ -248,6 +248,9 @@ Page({
             // on close
           });
         }
+        let accountNo = payCard.cardNum
+        let idNo = user.idNum
+        let eNum = user.eAccountNo
         this.setData({
           infoList:user,
           cardList:payCard,
@@ -266,6 +269,9 @@ Page({
           ['form.licIssuAutho']: user.licIssuAutho,
           ['form.idNumAddrBefore']: '',
           ['form.idNumAddrAfter']: '',
+          cardNum:accountNo.substr(0,3) + '*******' + accountNo.substr(accountNo.length - 4),
+          idCard:idNo.substr(0,3) + '*******' + idNo.substr(idNo.length - 3),
+          eNum:eNum.substr(0,3) + '*******' + eNum.substr(eNum.length - 4)
         })
       })
     }

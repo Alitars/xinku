@@ -204,6 +204,12 @@ exports.getTaskDetail = function (sessionToken,enterpriseId,positionId) {
     }
   })
 }
+exports.getTaskDetailNotoken = function (eId,pId) {
+  return request({
+    url: `/person_/internship/queryInternshipDetails?enterpriseId=${eId}&positionId=${pId}`,
+    method: 'GET',
+  })
+}
 // 接受任务
 exports.doTask = function (sessionToken,signId) {
   return request({

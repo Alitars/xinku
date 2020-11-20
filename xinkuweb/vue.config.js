@@ -3,13 +3,18 @@
  * @Author: luozhongpeng
  * @Date: 2020-10-27 18:42:01
  * @LastEditors: voanit
- * @LastEditTime: 2020-10-29 17:07:18
+ * @LastEditTime: 2020-11-13 15:12:34
  */
 // 在所有环境生效
 module.exports = process.env.NODE_ENV === 'production' ? { // 正式环境
     outputDir: process.env.outputDir, 
 	publicPath: process.env.BASE_URL, // 打包生成的资源路径（配置在 .env.formal 和 .env.testing）
-	productionSourceMap: false, // 不生成.map文件
+  productionSourceMap: false, // 不生成.map文件
+  configureWebpack: {
+    externals: {
+      'AMap': 'AMap' // 高德地图配置
+    }
+  }
 	/**
 	 * 为什么不启用CDN？
 	 * 原因：虽然启用CDN可以加速，但是CDN可能 挂掉（这个可以设置备用解决）或 限速（这个没办法设置请求超时时长）

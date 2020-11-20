@@ -72,7 +72,7 @@
     <view class="red t-l" wx:if="{{error}}">{{tip}}</view>
     <view class="clearfix mg-t">
       <view class="fl lw">到账时间:</view>
-      <view class="fl moneytxt "> 预计<text class="blue">3~7</text>个工作日内到账</view>
+      <view class="fl moneytxt "> 预计<text class="blue">1</text>个工作日内到账</view>
       
     </view>
     <view class="textc">

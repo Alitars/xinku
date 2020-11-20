@@ -46,12 +46,6 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -64,9 +58,8 @@
     "miniprogram": {
       "list": [
         {
-          "id": 0,
-          "name": "pages/userCenter/userCenter",
-          "pathName": "pages/userCenter/userCenter",
+          "name": "pages/defeatCheck/defeatCheck",
+          "pathName": "pages/defeatCheck/defeatCheck",
           "query": "",
           "scene": null
         },
@@ -120,9 +113,8 @@
           "scene": null
         },
         {
-          "id": 8,
-          "name": "pages/infoshow/infoshow",
-          "pathName": "pages/infoshow/infoshow",
+          "name": "pages/taskInfo/taskInfo",
+          "pathName": "pages/taskInfo/taskInfo",
           "query": "id=1&pid=26",
           "scene": null
         },
@@ -130,6 +122,12 @@
           "id": 9,
           "name": "pages/login/regist/index",
           "pathName": "pages/login/regist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/defeatCheck/defeatCheck",
+          "pathName": "pages/defeatCheck/defeatCheck",
           "query": "",
           "scene": null
         }
